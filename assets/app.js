@@ -223,34 +223,13 @@ function effectSummary(effect) {
 }
 
 function judgmentStudyCard(d, index) {
-  return `<article class="judgment-card">
-    <div class="judgment-number">${index + 1}</div>
-    <div class="judgment-body">
-      <div class="decision-head">
-        <h3>${esc(d.id)} ${esc(d.question)}</h3>
-        <div>${status(d.confidence)} ${d.changedFromAI ? status("changed") : status("certified")}</div>
-      </div>
-      <p><strong>Final answer:</strong> ${esc(d.answer)}</p>
-      <p><strong>Simple explanation:</strong> ${esc(materialPlainExplanation(d))}</p>
-      <p><strong>What to say if asked:</strong> ${esc(d.studentReasoning)}</p>
-      <div class="judgment-grid">
-        <div>
-          <h4>Agent 1 proposal</h4>
-          <p>${esc(d.aiProposal)}</p>
-        </div>
-        <div>
-          <h4>Agent 2 challenge</h4>
-          <p>${esc(d.independentChallenge)}</p>
-        </div>
-      </div>
-      <h4>Statement effect</h4>
-      ${effectSummary(d.statementEffect)}
-      <details>
-        <summary>Evidence</summary>
-        ${evidenceList(d.evidence)}
-      </details>
-    </div>
-  </article>`;
+  return [
+    plain.format(index + 1),
+    esc(d.id),
+    esc(d.question),
+    esc(d.answer),
+    status(d.confidence)
+  ];
 }
 
 function judgments(data) {
@@ -258,7 +237,6 @@ function judgments(data) {
   return `${metrics(data)}
     <section class="panel study-intro">
       <h2>25 Material Management-Accounting Judgments</h2>
-      <p class="callout">This page is for oral preparation. It shows the 25 important accounting judgments in simple language, with the final answer, the reason, evidence and statement effect.</p>
       <div class="review-flags">
         <div class="flag"><span>Required judgments</span><strong>25</strong><small>From the assignment template</small></div>
         <div class="flag"><span>Included here</span><strong>${plain.format(material.length)}</strong><small>${material.length === 25 ? "Complete" : "Check missing items"}</small></div>
@@ -266,8 +244,15 @@ function judgments(data) {
         <div class="flag"><span>Low confidence</span><strong>${plain.format(material.filter((d) => d.confidence === "low").length)}</strong><small>${material.filter((d) => d.confidence === "low").map((d) => d.id).join(", ") || "None"}</small></div>
       </div>
     </section>
-    <section class="judgment-list">
-      ${material.map((d, index) => judgmentStudyCard(d, index)).join("")}
+    <section class="panel">
+      <h2>Material Judgment List</h2>
+      ${table([
+        { label: "#" },
+        { label: "ID" },
+        { label: "Judgment" },
+        { label: "Final answer" },
+        { label: "Confidence" }
+      ], material.map((d, index) => judgmentStudyCard(d, index)))}
     </section>`;
 }
 
