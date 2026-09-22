@@ -1,0 +1,2046 @@
+{
+  "schemaVersion": "1.0",
+  "caseId": "DPI-HT-01",
+  "student": {
+    "id": "STUDENT-ID-PLACEHOLDER",
+    "name": "STUDENT-NAME-PLACEHOLDER"
+  },
+  "evidence": [
+    {
+      "file": "01 START HERE - Student Assignment.pdf",
+      "inspection": "Read first; defines required statements, decisions, application routes and checks."
+    },
+    {
+      "file": "02 FINANCE REFERENCE - Use When You Get Stuck.pdf",
+      "inspection": "Used for accounting concepts on revenue, accruals, PPE, loans, provisions and reconciliations."
+    },
+    {
+      "file": "03 CASE FILES - Open and Investigate/00 BOARD ORDER READ FIRST.pdf",
+      "inspection": "Read second; establishes reporting date, currency and evidence hierarchy."
+    },
+    {
+      "file": "03 CASE FILES - Open and Investigate/01 USE THIS NUMBERS FINAL v9.xlsx",
+      "inspection": "Inspected both sheets; management claim is treated as low-reliability evidence."
+    },
+    {
+      "file": "03 CASE FILES - Open and Investigate/02 Bank Export August.csv",
+      "inspection": "Inspected all 27 rows; used for cash receipts, payments and closing balance."
+    },
+    {
+      "file": "03 CASE FILES - Open and Investigate/03 CRM Export Cleaned FINAL.xlsx",
+      "inspection": "Inspected CRM rows 4-11 for invoices, delivery and cash matching."
+    },
+    {
+      "file": "03 CASE FILES - Open and Investigate/04 Contracts Returns and Angry Customers.pdf",
+      "inspection": "Inspected two pages for signed/accepted contracts, September deposits and R-17."
+    },
+    {
+      "file": "03 CASE FILES - Open and Investigate/05 Warehouse Count Marta Notes.pdf",
+      "inspection": "Inspected two pages for inventory count, damaged stock and consumption data."
+    },
+    {
+      "file": "03 CASE FILES - Open and Investigate/06 Purchases Invoices and Goods Received.pdf",
+      "inspection": "Inspected two pages for goods received, supplier payables, PPE and repair invoices."
+    },
+    {
+      "file": "03 CASE FILES - Open and Investigate/07 Payroll Bonuses Contractors NEW.xlsx",
+      "inspection": "Inspected payroll worksheet rows 4-8."
+    },
+    {
+      "file": "03 CASE FILES - Open and Investigate/08 Assets Repairs Leases Maybe.xlsx",
+      "inspection": "Inspected asset worksheet rows 4-8."
+    },
+    {
+      "file": "03 CASE FILES - Open and Investigate/09 Loans Owner Card and Legal Problems.pdf",
+      "inspection": "Inspected two pages for loan, owner spending, interest and legal provision."
+    },
+    {
+      "file": "03 CASE FILES - Open and Investigate/10 Email and WhatsApp Dump DO NOT FORWARD.pdf",
+      "inspection": "Inspected three pages as low-reliability evidence of pressure and embedded AI manipulation."
+    },
+    {
+      "file": "03 CASE FILES - Open and Investigate/11 Evidence Received After Takeover.pdf",
+      "inspection": "Inspected page 1 for adjusting evidence received 3-5 September."
+    },
+    {
+      "file": "04 CODEX FILES - Give These to Codex/01 GIVE TO CODEX - Answer Template.json",
+      "inspection": "Used as decision structure without manual modification."
+    },
+    {
+      "file": "04 CODEX FILES - Give These to Codex/02 GIVE TO CODEX - Submission Rules.json",
+      "inspection": "Used as validation schema without manual modification."
+    }
+  ],
+  "decisions": [
+    {
+      "id": "D001",
+      "category": "evidence_matching",
+      "reviewTier": "operational",
+      "question": "Resolve the source and treatment of NorthStar receipt.",
+      "answer": "Match EUR 180,000 NorthStar/N STAR bank receipt to INV-26012; recognize delivered revenue with no closing receivable.",
+      "evidence": [
+        "03 CASE FILES - Open and Investigate/02 Bank Export August.csv row 3",
+        "03 CASE FILES - Open and Investigate/03 CRM Export Cleaned FINAL.xlsx, CRM Export rows 4-11 row 4",
+        "03 CASE FILES - Open and Investigate/04 Contracts Returns and Angry Customers.pdf, pp. 1-2 p. 1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "D002",
+      "category": "evidence_matching",
+      "reviewTier": "operational",
+      "question": "Resolve the source and treatment of Freedom receipt 1.",
+      "answer": "Match EUR 142,000 Freedom Festivals receipt to INV-26031; recognize EUR 200,000 revenue and EUR 58,000 receivable.",
+      "evidence": [
+        "03 CASE FILES - Open and Investigate/02 Bank Export August.csv row 5",
+        "03 CASE FILES - Open and Investigate/03 CRM Export Cleaned FINAL.xlsx, CRM Export rows 4-11 row 5",
+        "03 CASE FILES - Open and Investigate/04 Contracts Returns and Angry Customers.pdf, pp. 1-2 p. 1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "D003",
+      "category": "evidence_matching",
+      "reviewTier": "operational",
+      "question": "Resolve the source and treatment of Phoenix receipt.",
+      "answer": "Match EUR 70,000 Phoenix receipt to completed event; recognize EUR 100,000 revenue and EUR 30,000 receivable.",
+      "evidence": [
+        "03 CASE FILES - Open and Investigate/02 Bank Export August.csv row 6",
+        "03 CASE FILES - Open and Investigate/03 CRM Export Cleaned FINAL.xlsx, CRM Export rows 4-11 row 6",
+        "03 CASE FILES - Open and Investigate/04 Contracts Returns and Angry Customers.pdf, pp. 1-2 p. 1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "D004",
+      "category": "evidence_matching",
+      "reviewTier": "operational",
+      "question": "Resolve the source and treatment of Liberty receipt.",
+      "answer": "Match EUR 95,000 Liberty receipt to delivered order; recognize EUR 120,000 revenue and EUR 25,000 receivable.",
+      "evidence": [
+        "03 CASE FILES - Open and Investigate/02 Bank Export August.csv row 7",
+        "03 CASE FILES - Open and Investigate/03 CRM Export Cleaned FINAL.xlsx, CRM Export rows 4-11 row 7",
+        "03 CASE FILES - Open and Investigate/04 Contracts Returns and Angry Customers.pdf, pp. 1-2 p. 1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "D005",
+      "category": "evidence_matching",
+      "reviewTier": "operational",
+      "question": "Resolve the source and treatment of Opening receivable receipt.",
+      "answer": "Treat EUR 35,000 old customer settlement as collection of opening receivable, not current-period revenue.",
+      "evidence": [
+        "03 CASE FILES - Open and Investigate/02 Bank Export August.csv row 2"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "D006",
+      "category": "evidence_matching",
+      "reviewTier": "operational",
+      "question": "Resolve the source and treatment of Finally Single web receipts.",
+      "answer": "Treat EUR 250,000 Finally Single Stripe receipts as cash against EUR 270,000 delivered web revenue, leaving EUR 20,000 platform receivable.",
+      "evidence": [
+        "03 CASE FILES - Open and Investigate/02 Bank Export August.csv row 8",
+        "03 CASE FILES - Open and Investigate/03 CRM Export Cleaned FINAL.xlsx, CRM Export rows 4-11 row 8"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "D007",
+      "category": "evidence_matching",
+      "reviewTier": "operational",
+      "question": "Resolve the source and treatment of Never Call Back web receipts.",
+      "answer": "Treat EUR 37,000 Never Call Back Stripe receipts as cash against EUR 90,000 web revenue; gross receivable is EUR 53,000 before the EUR 18,000 R-17 write-off.",
+      "evidence": [
+        "03 CASE FILES - Open and Investigate/02 Bank Export August.csv row 9",
+        "03 CASE FILES - Open and Investigate/03 CRM Export Cleaned FINAL.xlsx, CRM Export rows 4-11 row 9",
+        "03 CASE FILES - Open and Investigate/04 Contracts Returns and Angry Customers.pdf, pp. 1-2 p. 2"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "D008",
+      "category": "evidence_matching",
+      "reviewTier": "operational",
+      "question": "Resolve the source and treatment of New Beginnings deposit.",
+      "answer": "Treat EUR 60,000 New Beginnings receipt as a September customer deposit liability, not August revenue.",
+      "evidence": [
+        "03 CASE FILES - Open and Investigate/02 Bank Export August.csv row 10",
+        "03 CASE FILES - Open and Investigate/03 CRM Export Cleaned FINAL.xlsx, CRM Export rows 4-11 row 10",
+        "03 CASE FILES - Open and Investigate/04 Contracts Returns and Angry Customers.pdf, pp. 1-2 p. 2"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "D009",
+      "category": "evidence_matching",
+      "reviewTier": "operational",
+      "question": "Resolve the source and treatment of Fresh Freedom deposit.",
+      "answer": "Treat EUR 30,000 Fresh Freedom receipt as a September customer deposit liability, not August revenue.",
+      "evidence": [
+        "03 CASE FILES - Open and Investigate/02 Bank Export August.csv row 11",
+        "03 CASE FILES - Open and Investigate/03 CRM Export Cleaned FINAL.xlsx, CRM Export rows 4-11 row 11",
+        "03 CASE FILES - Open and Investigate/04 Contracts Returns and Angry Customers.pdf, pp. 1-2 p. 2"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "D010",
+      "category": "evidence_matching",
+      "reviewTier": "operational",
+      "question": "Resolve the source and treatment of Box supplier payment.",
+      "answer": "BoxWorks cash payment is EUR 105,000; supplier confirmation leaves EUR 25,000 payable.",
+      "evidence": [
+        "03 CASE FILES - Open and Investigate/02 Bank Export August.csv row 12",
+        "03 CASE FILES - Open and Investigate/06 Purchases Invoices and Goods Received.pdf, pp. 1-2 p. 1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "D011",
+      "category": "evidence_matching",
+      "reviewTier": "operational",
+      "question": "Resolve the source and treatment of Glass supplier payment.",
+      "answer": "Glass & Drama cash payment is EUR 92,000; supplier confirmation leaves EUR 28,000 payable.",
+      "evidence": [
+        "03 CASE FILES - Open and Investigate/02 Bank Export August.csv row 13",
+        "03 CASE FILES - Open and Investigate/06 Purchases Invoices and Goods Received.pdf, pp. 1-2 p. 1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "D012",
+      "category": "evidence_matching",
+      "reviewTier": "operational",
+      "question": "Resolve the source and treatment of Print supplier payment.",
+      "answer": "Print Again cash payment is EUR 81,000; supplier confirmation leaves EUR 14,000 payable.",
+      "evidence": [
+        "03 CASE FILES - Open and Investigate/02 Bank Export August.csv row 14",
+        "03 CASE FILES - Open and Investigate/06 Purchases Invoices and Goods Received.pdf, pp. 1-2 p. 1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "D013",
+      "category": "evidence_matching",
+      "reviewTier": "operational",
+      "question": "Resolve the source and treatment of Event supplier payment.",
+      "answer": "Event supplier bank payment is EUR 100,000, but supplier confirmation supports EUR 59,000 still payable; the excess paid creates a EUR 45,000 prepayment/timing uncertainty.",
+      "evidence": [
+        "03 CASE FILES - Open and Investigate/02 Bank Export August.csv row 15",
+        "03 CASE FILES - Open and Investigate/06 Purchases Invoices and Goods Received.pdf, pp. 1-2 p. 1"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "D014",
+      "category": "evidence_matching",
+      "reviewTier": "operational",
+      "question": "Resolve the source and treatment of January payroll.",
+      "answer": "January payroll is included in the Jan-Aug combined payroll evidence; no reliable month split is supplied, so use the aggregate payroll schedule.",
+      "evidence": [
+        "03 CASE FILES - Open and Investigate/07 Payroll Bonuses Contractors NEW.xlsx, Payroll rows 4-8",
+        "03 CASE FILES - Open and Investigate/02 Bank Export August.csv row 16"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "D015",
+      "category": "evidence_matching",
+      "reviewTier": "operational",
+      "question": "Resolve the source and treatment of February payroll.",
+      "answer": "February payroll is included in the Jan-Aug combined payroll evidence; no reliable month split is supplied, so use the aggregate payroll schedule.",
+      "evidence": [
+        "03 CASE FILES - Open and Investigate/07 Payroll Bonuses Contractors NEW.xlsx, Payroll rows 4-8",
+        "03 CASE FILES - Open and Investigate/02 Bank Export August.csv row 16"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "D016",
+      "category": "evidence_matching",
+      "reviewTier": "operational",
+      "question": "Resolve the source and treatment of March payroll.",
+      "answer": "March payroll is included in the Jan-Aug combined payroll evidence; no reliable month split is supplied, so use the aggregate payroll schedule.",
+      "evidence": [
+        "03 CASE FILES - Open and Investigate/07 Payroll Bonuses Contractors NEW.xlsx, Payroll rows 4-8",
+        "03 CASE FILES - Open and Investigate/02 Bank Export August.csv row 16"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "D017",
+      "category": "evidence_matching",
+      "reviewTier": "operational",
+      "question": "Resolve the source and treatment of April payroll.",
+      "answer": "April payroll is included in the Jan-Aug combined payroll evidence; no reliable month split is supplied, so use the aggregate payroll schedule.",
+      "evidence": [
+        "03 CASE FILES - Open and Investigate/07 Payroll Bonuses Contractors NEW.xlsx, Payroll rows 4-8",
+        "03 CASE FILES - Open and Investigate/02 Bank Export August.csv row 16"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "D018",
+      "category": "evidence_matching",
+      "reviewTier": "operational",
+      "question": "Resolve the source and treatment of May payroll.",
+      "answer": "May payroll is included in the Jan-Aug combined payroll evidence; no reliable month split is supplied, so use the aggregate payroll schedule.",
+      "evidence": [
+        "03 CASE FILES - Open and Investigate/07 Payroll Bonuses Contractors NEW.xlsx, Payroll rows 4-8",
+        "03 CASE FILES - Open and Investigate/02 Bank Export August.csv row 16"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "D019",
+      "category": "evidence_matching",
+      "reviewTier": "operational",
+      "question": "Resolve the source and treatment of June payroll.",
+      "answer": "June payroll is included in the Jan-Aug combined payroll evidence; no reliable month split is supplied, so use the aggregate payroll schedule.",
+      "evidence": [
+        "03 CASE FILES - Open and Investigate/07 Payroll Bonuses Contractors NEW.xlsx, Payroll rows 4-8",
+        "03 CASE FILES - Open and Investigate/02 Bank Export August.csv row 16"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "D020",
+      "category": "evidence_matching",
+      "reviewTier": "operational",
+      "question": "Resolve the source and treatment of July payroll.",
+      "answer": "July payroll is included in the Jan-Aug combined payroll evidence; no reliable month split is supplied, so use the aggregate payroll schedule.",
+      "evidence": [
+        "03 CASE FILES - Open and Investigate/07 Payroll Bonuses Contractors NEW.xlsx, Payroll rows 4-8",
+        "03 CASE FILES - Open and Investigate/02 Bank Export August.csv row 16"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "D021",
+      "category": "evidence_matching",
+      "reviewTier": "operational",
+      "question": "Resolve the source and treatment of August payroll.",
+      "answer": "August payroll is included in the Jan-Aug combined payroll evidence; no reliable month split is supplied, so use the aggregate payroll schedule.",
+      "evidence": [
+        "03 CASE FILES - Open and Investigate/07 Payroll Bonuses Contractors NEW.xlsx, Payroll rows 4-8",
+        "03 CASE FILES - Open and Investigate/02 Bank Export August.csv row 16"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "D022",
+      "category": "evidence_matching",
+      "reviewTier": "operational",
+      "question": "Resolve the source and treatment of Rent payments.",
+      "answer": "Rent payments total EUR 48,000 and are operating expense.",
+      "evidence": [
+        "03 CASE FILES - Open and Investigate/02 Bank Export August.csv row 17"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "D023",
+      "category": "evidence_matching",
+      "reviewTier": "operational",
+      "question": "Resolve the source and treatment of Meta and influencer payments.",
+      "answer": "Meta, TikTok and influencer payments total EUR 55,000 and are marketing expense.",
+      "evidence": [
+        "03 CASE FILES - Open and Investigate/02 Bank Export August.csv row 18"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "D024",
+      "category": "evidence_matching",
+      "reviewTier": "operational",
+      "question": "Resolve the source and treatment of Software payments.",
+      "answer": "Software subscription payments total EUR 16,000 and are operating expense.",
+      "evidence": [
+        "03 CASE FILES - Open and Investigate/02 Bank Export August.csv row 19"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "D025",
+      "category": "evidence_matching",
+      "reviewTier": "operational",
+      "question": "Resolve the source and treatment of Utilities payments.",
+      "answer": "Utilities payments total EUR 12,000 and are operating expense.",
+      "evidence": [
+        "03 CASE FILES - Open and Investigate/02 Bank Export August.csv row 20"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "D026",
+      "category": "evidence_matching",
+      "reviewTier": "operational",
+      "question": "Resolve the source and treatment of Repair transfer.",
+      "answer": "Emergency machine work payment of EUR 10,000 is expensed as repair and maintenance.",
+      "evidence": [
+        "03 CASE FILES - Open and Investigate/02 Bank Export August.csv row 21",
+        "03 CASE FILES - Open and Investigate/06 Purchases Invoices and Goods Received.pdf, pp. 1-2 p. 2",
+        "03 CASE FILES - Open and Investigate/08 Assets Repairs Leases Maybe.xlsx, Assets rows 4-8 row 7"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "D027",
+      "category": "evidence_matching",
+      "reviewTier": "operational",
+      "question": "Resolve the source and treatment of Packaging machine payment.",
+      "answer": "Packaging machine payment of EUR 60,000 is capital expenditure for PPE.",
+      "evidence": [
+        "03 CASE FILES - Open and Investigate/02 Bank Export August.csv row 22",
+        "03 CASE FILES - Open and Investigate/06 Purchases Invoices and Goods Received.pdf, pp. 1-2 p. 2",
+        "03 CASE FILES - Open and Investigate/08 Assets Repairs Leases Maybe.xlsx, Assets rows 4-8 row 5"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "D028",
+      "category": "evidence_matching",
+      "reviewTier": "operational",
+      "question": "Resolve the source and treatment of Photo booth payment.",
+      "answer": "Photo booth payment of EUR 20,000 is capital expenditure for PPE.",
+      "evidence": [
+        "03 CASE FILES - Open and Investigate/02 Bank Export August.csv row 23",
+        "03 CASE FILES - Open and Investigate/06 Purchases Invoices and Goods Received.pdf, pp. 1-2 p. 2",
+        "03 CASE FILES - Open and Investigate/08 Assets Repairs Leases Maybe.xlsx, Assets rows 4-8 row 6"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "D029",
+      "category": "evidence_matching",
+      "reviewTier": "operational",
+      "question": "Resolve the source and treatment of Loan receipt.",
+      "answer": "EUR 50,000 Baltic Bank facility receipt is a loan advance, not income.",
+      "evidence": [
+        "03 CASE FILES - Open and Investigate/02 Bank Export August.csv row 4",
+        "03 CASE FILES - Open and Investigate/09 Loans Owner Card and Legal Problems.pdf, pp. 1-2 p. 1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "D030",
+      "category": "evidence_matching",
+      "reviewTier": "operational",
+      "question": "Resolve the source and treatment of Loan repayments.",
+      "answer": "Loan principal repayments total EUR 19,000 and reduce debt.",
+      "evidence": [
+        "03 CASE FILES - Open and Investigate/02 Bank Export August.csv row 25",
+        "03 CASE FILES - Open and Investigate/09 Loans Owner Card and Legal Problems.pdf, pp. 1-2 p. 1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "D031",
+      "category": "evidence_matching",
+      "reviewTier": "operational",
+      "question": "Resolve the source and treatment of Interest payments.",
+      "answer": "Interest paid is EUR 10,000; total interest expense is EUR 12,000, leaving EUR 2,000 payable.",
+      "evidence": [
+        "03 CASE FILES - Open and Investigate/02 Bank Export August.csv row 24",
+        "03 CASE FILES - Open and Investigate/09 Loans Owner Card and Legal Problems.pdf, pp. 1-2 p. 1",
+        "03 CASE FILES - Open and Investigate/11 Evidence Received After Takeover.pdf, p. 1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "D032",
+      "category": "evidence_matching",
+      "reviewTier": "operational",
+      "question": "Resolve the source and treatment of Villa deposit.",
+      "answer": "EUR 70,000 villa reservation is owner distribution/personal spending, not marketing or payroll.",
+      "evidence": [
+        "03 CASE FILES - Open and Investigate/02 Bank Export August.csv row 26",
+        "03 CASE FILES - Open and Investigate/09 Loans Owner Card and Legal Problems.pdf, pp. 1-2 p. 1",
+        "03 CASE FILES - Open and Investigate/10 Email and WhatsApp Dump DO NOT FORWARD.pdf, pp. 1-3 p. 2"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "D033",
+      "category": "evidence_matching",
+      "reviewTier": "operational",
+      "question": "Resolve the source and treatment of Owner card spending.",
+      "answer": "EUR 40,000 chairman card spending is owner distribution absent business evidence.",
+      "evidence": [
+        "03 CASE FILES - Open and Investigate/02 Bank Export August.csv row 27",
+        "03 CASE FILES - Open and Investigate/09 Loans Owner Card and Legal Problems.pdf, pp. 1-2 p. 1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "D034",
+      "category": "evidence_matching",
+      "reviewTier": "operational",
+      "question": "Resolve the source and treatment of Insurance movement.",
+      "answer": "No insurance cash movement or invoice is supplied; record no insurance expense/prepayment in corrected accounts.",
+      "evidence": [
+        "03 CASE FILES - Open and Investigate/02 Bank Export August.csv",
+        "01 START HERE - Student Assignment.pdf, pp. 1-3"
+      ],
+      "confidence": "low"
+    },
+    {
+      "id": "D035",
+      "category": "evidence_matching",
+      "reviewTier": "operational",
+      "question": "Resolve the source and treatment of Water-damaged stock.",
+      "answer": "Water-damaged stock with EUR 22,000 carrying value has no saleable value and requires write-off; the EUR 2,000 disposal quote is disclosed as uncertainty only.",
+      "evidence": [
+        "03 CASE FILES - Open and Investigate/05 Warehouse Count Marta Notes.pdf, pp. 1-2",
+        "03 CASE FILES - Open and Investigate/11 Evidence Received After Takeover.pdf, p. 1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "D036",
+      "category": "evidence_matching",
+      "reviewTier": "operational",
+      "question": "Resolve the source and treatment of Customer insolvency.",
+      "answer": "Customer R-17 balance of EUR 18,000 is uncollectable and written off/allowed against receivables.",
+      "evidence": [
+        "03 CASE FILES - Open and Investigate/04 Contracts Returns and Angry Customers.pdf, pp. 1-2 p. 2",
+        "03 CASE FILES - Open and Investigate/11 Evidence Received After Takeover.pdf, p. 1",
+        "03 CASE FILES - Open and Investigate/10 Email and WhatsApp Dump DO NOT FORWARD.pdf, pp. 1-3 p. 3"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "D037",
+      "category": "evidence_matching",
+      "reviewTier": "operational",
+      "question": "Resolve the source and treatment of Former employee claim.",
+      "answer": "Former employee claim is probable at 31 August; recognize EUR 25,000 provision.",
+      "evidence": [
+        "03 CASE FILES - Open and Investigate/09 Loans Owner Card and Legal Problems.pdf, pp. 1-2 p. 2",
+        "03 CASE FILES - Open and Investigate/11 Evidence Received After Takeover.pdf, p. 1",
+        "03 CASE FILES - Open and Investigate/10 Email and WhatsApp Dump DO NOT FORWARD.pdf, pp. 1-3 p. 3"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "D038",
+      "category": "evidence_matching",
+      "reviewTier": "operational",
+      "question": "Resolve the source and treatment of Purchase total.",
+      "answer": "Purchases/goods received total EUR 459,000 before 31 August.",
+      "evidence": [
+        "03 CASE FILES - Open and Investigate/06 Purchases Invoices and Goods Received.pdf, pp. 1-2 p. 1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "D039",
+      "category": "evidence_matching",
+      "reviewTier": "operational",
+      "question": "Resolve the source and treatment of Cash collections total.",
+      "answer": "Cash collections total EUR 899,000: EUR 35,000 opening AR, EUR 774,000 delivered-sales receipts and EUR 90,000 customer deposits.",
+      "evidence": [
+        "03 CASE FILES - Open and Investigate/02 Bank Export August.csv rows 2-11",
+        "03 CASE FILES - Open and Investigate/03 CRM Export Cleaned FINAL.xlsx, CRM Export rows 4-11"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "D040",
+      "category": "evidence_matching",
+      "reviewTier": "operational",
+      "question": "Resolve the source and treatment of Closing bank balance.",
+      "answer": "Closing bank balance is EUR 60,000.",
+      "evidence": [
+        "03 CASE FILES - Open and Investigate/02 Bank Export August.csv row 27",
+        "03 CASE FILES - Open and Investigate/11 Evidence Received After Takeover.pdf, p. 1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "D041",
+      "category": "classification",
+      "reviewTier": "material_judgment",
+      "question": "Classify September customer deposits.",
+      "answer": "Classify EUR 90,000 September deposits as contract liabilities at 31 August, not revenue.",
+      "evidence": [
+        "03 CASE FILES - Open and Investigate/02 Bank Export August.csv rows 10-11",
+        "03 CASE FILES - Open and Investigate/04 Contracts Returns and Angry Customers.pdf, pp. 1-2 p. 2",
+        "03 CASE FILES - Open and Investigate/03 CRM Export Cleaned FINAL.xlsx, CRM Export rows 4-11 rows 10-11"
+      ],
+      "confidence": "high",
+      "aiProposal": "Agent 1: Defer both receipts because delivery occurs after 31 August.",
+      "independentChallenge": "Agent 2: Cash exists before year end but no performance obligation was satisfied, so recognizing August revenue would overstate profit.",
+      "studentReasoning": "The signed/customer evidence and CRM delivery dates show no goods or service delivered by 31 August; cash received for September work is a liability.",
+      "statementEffect": {
+        "profit": -90000.0,
+        "cash": 0.0,
+        "assets": 0.0,
+        "liabilities": 90000.0,
+        "equity": -90000.0
+      },
+      "changedFromAI": false
+    },
+    {
+      "id": "D042",
+      "category": "classification",
+      "reviewTier": "material_judgment",
+      "question": "Classify New bank borrowing.",
+      "answer": "Classify EUR 50,000 new bank borrowing as debt financing, not income.",
+      "evidence": [
+        "03 CASE FILES - Open and Investigate/02 Bank Export August.csv row 4",
+        "03 CASE FILES - Open and Investigate/09 Loans Owner Card and Legal Problems.pdf, pp. 1-2 p. 1"
+      ],
+      "confidence": "high",
+      "aiProposal": "Agent 1: Reclassify the facility receipt from strategic income to loan principal.",
+      "independentChallenge": "Agent 2: The signed agreement and bank confirmation are stronger than management's label, so no revenue exists.",
+      "studentReasoning": "The bank advance creates an obligation to repay; it increases cash and loan liability, not profit.",
+      "statementEffect": {
+        "profit": -50000.0,
+        "cash": 0.0,
+        "assets": 0.0,
+        "liabilities": 50000.0,
+        "equity": -50000.0
+      },
+      "changedFromAI": false
+    },
+    {
+      "id": "D043",
+      "category": "classification",
+      "reviewTier": "material_judgment",
+      "question": "Classify Packaging machine.",
+      "answer": "Capitalize the EUR 60,000 Pack-O-Matic packaging machine as PPE.",
+      "evidence": [
+        "03 CASE FILES - Open and Investigate/02 Bank Export August.csv row 22",
+        "03 CASE FILES - Open and Investigate/06 Purchases Invoices and Goods Received.pdf, pp. 1-2 p. 2",
+        "03 CASE FILES - Open and Investigate/08 Assets Repairs Leases Maybe.xlsx, Assets rows 4-8 row 5"
+      ],
+      "confidence": "high",
+      "aiProposal": "Agent 1: Capitalize as equipment available for use from 10 May.",
+      "independentChallenge": "Agent 2: It may need depreciation from availability date, but the purchase itself is clearly a long-term asset.",
+      "studentReasoning": "The machine was installed and available for use; it creates a long-term resource and is not a repair.",
+      "statementEffect": {
+        "profit": 60000.0,
+        "cash": 0.0,
+        "assets": 60000.0,
+        "liabilities": 0.0,
+        "equity": 60000.0
+      },
+      "changedFromAI": false
+    },
+    {
+      "id": "D044",
+      "category": "classification",
+      "reviewTier": "material_judgment",
+      "question": "Classify Photo booth.",
+      "answer": "Capitalize the EUR 20,000 Regret Photo Booth as PPE.",
+      "evidence": [
+        "03 CASE FILES - Open and Investigate/02 Bank Export August.csv row 23",
+        "03 CASE FILES - Open and Investigate/06 Purchases Invoices and Goods Received.pdf, pp. 1-2 p. 2",
+        "03 CASE FILES - Open and Investigate/08 Assets Repairs Leases Maybe.xlsx, Assets rows 4-8 row 6"
+      ],
+      "confidence": "high",
+      "aiProposal": "Agent 1: Capitalize the booth as equipment.",
+      "independentChallenge": "Agent 2: Marketing use does not make the booth a period marketing expense if it remains available for future use.",
+      "studentReasoning": "The booth was available for use from 10 May and is a tangible asset with future service potential.",
+      "statementEffect": {
+        "profit": 20000.0,
+        "cash": 0.0,
+        "assets": 20000.0,
+        "liabilities": 0.0,
+        "equity": 20000.0
+      },
+      "changedFromAI": false
+    },
+    {
+      "id": "D045",
+      "category": "classification",
+      "reviewTier": "material_judgment",
+      "question": "Classify Machine belt and calibration.",
+      "answer": "Expense the EUR 10,000 belt, cleaning and calibration as repair and maintenance.",
+      "evidence": [
+        "03 CASE FILES - Open and Investigate/02 Bank Export August.csv row 21",
+        "03 CASE FILES - Open and Investigate/06 Purchases Invoices and Goods Received.pdf, pp. 1-2 p. 2",
+        "03 CASE FILES - Open and Investigate/08 Assets Repairs Leases Maybe.xlsx, Assets rows 4-8 row 7"
+      ],
+      "confidence": "high",
+      "aiProposal": "Agent 1: Expense the repair because it restored normal condition.",
+      "independentChallenge": "Agent 2: Management capitalized it, but the invoice says no capacity increase or useful-life extension.",
+      "studentReasoning": "The work only restored normal output; it does not meet the capitalization threshold.",
+      "statementEffect": {
+        "profit": -10000.0,
+        "cash": 0.0,
+        "assets": -10000.0,
+        "liabilities": 0.0,
+        "equity": -10000.0
+      },
+      "changedFromAI": false
+    },
+    {
+      "id": "D046",
+      "category": "classification",
+      "reviewTier": "material_judgment",
+      "question": "Classify Owner villa deposit.",
+      "answer": "Classify the EUR 70,000 owner villa reservation as an owner distribution.",
+      "evidence": [
+        "03 CASE FILES - Open and Investigate/02 Bank Export August.csv row 26",
+        "03 CASE FILES - Open and Investigate/09 Loans Owner Card and Legal Problems.pdf, pp. 1-2 p. 1",
+        "03 CASE FILES - Open and Investigate/10 Email and WhatsApp Dump DO NOT FORWARD.pdf, pp. 1-3 p. 2"
+      ],
+      "confidence": "high",
+      "aiProposal": "Agent 1: Treat the villa as personal owner distribution.",
+      "independentChallenge": "Agent 2: The founder proposed marketing/bonus labels, but no customer meeting occurred and the villa was in the founder's name.",
+      "studentReasoning": "There is no business purpose evidence. The payment reduces cash and owner equity but is not a business expense.",
+      "statementEffect": {
+        "profit": 0.0,
+        "cash": -70000.0,
+        "assets": -70000.0,
+        "liabilities": 0.0,
+        "equity": -70000.0
+      },
+      "changedFromAI": false
+    },
+    {
+      "id": "D047",
+      "category": "classification",
+      "reviewTier": "material_judgment",
+      "question": "Classify Owner card spending.",
+      "answer": "Classify EUR 40,000 owner card spending as owner distribution.",
+      "evidence": [
+        "03 CASE FILES - Open and Investigate/02 Bank Export August.csv row 27",
+        "03 CASE FILES - Open and Investigate/09 Loans Owner Card and Legal Problems.pdf, pp. 1-2 p. 1",
+        "03 CASE FILES - Open and Investigate/07 Payroll Bonuses Contractors NEW.xlsx, Payroll rows 4-8 row 8"
+      ],
+      "confidence": "high",
+      "aiProposal": "Agent 1: Treat the owner card spending as distribution, not payroll.",
+      "independentChallenge": "Agent 2: The payroll workbook's founder bonus lacks approval and corresponds to owner-controlled spending, so expense treatment is unsupported.",
+      "studentReasoning": "No approved employment or business-purpose evidence supports payroll or operating expense classification.",
+      "statementEffect": {
+        "profit": 0.0,
+        "cash": -40000.0,
+        "assets": -40000.0,
+        "liabilities": 0.0,
+        "equity": -40000.0
+      },
+      "changedFromAI": false
+    },
+    {
+      "id": "D048",
+      "category": "classification",
+      "reviewTier": "material_judgment",
+      "question": "Classify Physical product materials consumed.",
+      "answer": "Classify EUR 405,000 physical product materials consumed on valid delivered sales as COGS.",
+      "evidence": [
+        "03 CASE FILES - Open and Investigate/05 Warehouse Count Marta Notes.pdf, pp. 1-2 p. 2"
+      ],
+      "confidence": "medium",
+      "aiProposal": "Agent 1: Use EUR 405,000 as materials COGS for delivered sales.",
+      "independentChallenge": "Agent 2: The physical count creates a EUR 9,000 tension, but the delivered-sales consumption figure is the best direct COGS evidence.",
+      "studentReasoning": "The case gives a direct consumption figure for valid delivered sales; the inventory variance is disclosed separately.",
+      "statementEffect": {
+        "profit": -405000.0,
+        "cash": 0.0,
+        "assets": -405000.0,
+        "liabilities": 0.0,
+        "equity": -405000.0
+      },
+      "changedFromAI": false
+    },
+    {
+      "id": "D049",
+      "category": "classification",
+      "reviewTier": "material_judgment",
+      "question": "Classify Event staff payroll.",
+      "answer": "Classify EUR 80,000 event delivery staff payroll as direct service COGS.",
+      "evidence": [
+        "03 CASE FILES - Open and Investigate/07 Payroll Bonuses Contractors NEW.xlsx, Payroll rows 4-8 row 4"
+      ],
+      "confidence": "high",
+      "aiProposal": "Agent 1: Put event delivery staff in COGS because they work directly on paid events.",
+      "independentChallenge": "Agent 2: Payroll was paid through payroll, but its function is direct delivery rather than administration.",
+      "studentReasoning": "The department note says these employees work directly on paid events, so matching requires direct cost classification.",
+      "statementEffect": {
+        "profit": -80000.0,
+        "cash": -75000.0,
+        "assets": 0.0,
+        "liabilities": 5000.0,
+        "equity": -80000.0
+      },
+      "changedFromAI": false
+    },
+    {
+      "id": "D050",
+      "category": "classification",
+      "reviewTier": "operational",
+      "question": "Classify Sales team payroll.",
+      "answer": "Classify EUR 72,000 sales and partnerships payroll as operating sales expense, not COGS.",
+      "evidence": [
+        "03 CASE FILES - Open and Investigate/07 Payroll Bonuses Contractors NEW.xlsx, Payroll rows 4-8 row 5"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "D051",
+      "category": "classification",
+      "reviewTier": "operational",
+      "question": "Classify Office payroll.",
+      "answer": "Classify EUR 96,000 office and finance payroll as administrative operating expense.",
+      "evidence": [
+        "03 CASE FILES - Open and Investigate/07 Payroll Bonuses Contractors NEW.xlsx, Payroll rows 4-8 row 6"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "D052",
+      "category": "classification",
+      "reviewTier": "operational",
+      "question": "Classify Rent.",
+      "answer": "Classify EUR 48,000 rent as operating expense.",
+      "evidence": [
+        "03 CASE FILES - Open and Investigate/02 Bank Export August.csv row 17"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "D053",
+      "category": "classification",
+      "reviewTier": "operational",
+      "question": "Classify Marketing.",
+      "answer": "Classify EUR 55,000 Meta, TikTok and influencer spend as marketing expense.",
+      "evidence": [
+        "03 CASE FILES - Open and Investigate/02 Bank Export August.csv row 18"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "D054",
+      "category": "classification",
+      "reviewTier": "operational",
+      "question": "Classify Software.",
+      "answer": "Classify EUR 16,000 software subscriptions as operating expense.",
+      "evidence": [
+        "03 CASE FILES - Open and Investigate/02 Bank Export August.csv row 19"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "D055",
+      "category": "classification",
+      "reviewTier": "operational",
+      "question": "Classify Utilities.",
+      "answer": "Classify EUR 12,000 utilities as operating expense.",
+      "evidence": [
+        "03 CASE FILES - Open and Investigate/02 Bank Export August.csv row 20"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "D056",
+      "category": "classification",
+      "reviewTier": "material_judgment",
+      "question": "Classify Depreciation.",
+      "answer": "Classify EUR 24,000 period depreciation as non-cash operating expense.",
+      "evidence": [
+        "03 CASE FILES - Open and Investigate/08 Assets Repairs Leases Maybe.xlsx, Assets rows 4-8 row 8"
+      ],
+      "confidence": "medium",
+      "aiProposal": "Agent 1: Record the independent depreciation estimate as expense.",
+      "independentChallenge": "Agent 2: Depreciation should be verified against useful lives, but the independent schedule is the only supplied estimate.",
+      "studentReasoning": "The supplied asset schedule explicitly estimates EUR 24,000 period depreciation and management booked none.",
+      "statementEffect": {
+        "profit": -24000.0,
+        "cash": 0.0,
+        "assets": -24000.0,
+        "liabilities": 0.0,
+        "equity": -24000.0
+      },
+      "changedFromAI": false
+    },
+    {
+      "id": "D057",
+      "category": "classification",
+      "reviewTier": "material_judgment",
+      "question": "Classify Bad receivable.",
+      "answer": "Classify the EUR 18,000 R-17 balance as bad-debt expense/write-off.",
+      "evidence": [
+        "03 CASE FILES - Open and Investigate/04 Contracts Returns and Angry Customers.pdf, pp. 1-2 p. 2",
+        "03 CASE FILES - Open and Investigate/11 Evidence Received After Takeover.pdf, p. 1",
+        "03 CASE FILES - Open and Investigate/10 Email and WhatsApp Dump DO NOT FORWARD.pdf, pp. 1-3 p. 3"
+      ],
+      "confidence": "high",
+      "aiProposal": "Agent 1: Write off the EUR 18,000 receivable.",
+      "independentChallenge": "Agent 2: The notice arrived after year end, but it confirms insolvency existing at 31 August.",
+      "studentReasoning": "The liquidator notice is adjusting evidence of an existing condition; the receivable has no expected recovery.",
+      "statementEffect": {
+        "profit": -18000.0,
+        "cash": 0.0,
+        "assets": -18000.0,
+        "liabilities": 0.0,
+        "equity": -18000.0
+      },
+      "changedFromAI": false
+    },
+    {
+      "id": "D058",
+      "category": "classification",
+      "reviewTier": "material_judgment",
+      "question": "Classify Damaged stock.",
+      "answer": "Classify damaged basement stock as a EUR 22,000 inventory write-off; disclose the EUR 2,000 disposal quote without recognizing a provision.",
+      "evidence": [
+        "03 CASE FILES - Open and Investigate/05 Warehouse Count Marta Notes.pdf, pp. 1-2",
+        "03 CASE FILES - Open and Investigate/11 Evidence Received After Takeover.pdf, p. 1",
+        "03 CASE FILES - Open and Investigate/10 Email and WhatsApp Dump DO NOT FORWARD.pdf, pp. 1-3 p. 2"
+      ],
+      "confidence": "high",
+      "aiProposal": "Agent 1: Write off the damaged stock and accrue disposal cost.",
+      "independentChallenge": "Agent 2: Physical existence alone is not value; the independent assessment supports the write-off, but the disposal quote does not clearly prove a present obligation at 31 August.",
+      "studentReasoning": "The goods have no saleable value at 31 August, so the carrying value is written off. The EUR 2,000 future disposal quote is disclosed as uncertainty only because the present obligation threshold is not clearly met.",
+      "statementEffect": {
+        "profit": -22000.0,
+        "cash": 0.0,
+        "assets": -22000.0,
+        "liabilities": 0.0,
+        "equity": -22000.0
+      },
+      "changedFromAI": true
+    },
+    {
+      "id": "D059",
+      "category": "classification",
+      "reviewTier": "material_judgment",
+      "question": "Classify Probable legal claim.",
+      "answer": "Classify the former employee claim as a EUR 25,000 legal provision.",
+      "evidence": [
+        "03 CASE FILES - Open and Investigate/09 Loans Owner Card and Legal Problems.pdf, pp. 1-2 p. 2",
+        "03 CASE FILES - Open and Investigate/11 Evidence Received After Takeover.pdf, p. 1",
+        "03 CASE FILES - Open and Investigate/10 Email and WhatsApp Dump DO NOT FORWARD.pdf, pp. 1-3 p. 3"
+      ],
+      "confidence": "medium",
+      "aiProposal": "Agent 1: Recognize EUR 25,000 provision.",
+      "independentChallenge": "Agent 2: The range is EUR 20,000-EUR 30,000, so the best estimate is appropriate but still an estimate.",
+      "studentReasoning": "External counsel confirms the claim was probable at the reporting date; the best estimate is recognized.",
+      "statementEffect": {
+        "profit": -25000.0,
+        "cash": 0.0,
+        "assets": 0.0,
+        "liabilities": 25000.0,
+        "equity": -25000.0
+      },
+      "changedFromAI": false
+    },
+    {
+      "id": "D060",
+      "category": "classification",
+      "reviewTier": "operational",
+      "question": "Classify Insurance consumed.",
+      "answer": "No insurance consumed is recognized because no insurance invoice, cash movement or prepayment evidence was supplied.",
+      "evidence": [
+        "03 CASE FILES - Open and Investigate/02 Bank Export August.csv",
+        "01 START HERE - Student Assignment.pdf, pp. 1-3"
+      ],
+      "confidence": "low"
+    },
+    {
+      "id": "D061",
+      "category": "classification",
+      "reviewTier": "operational",
+      "question": "Classify Unpaid interest.",
+      "answer": "Classify EUR 2,000 unpaid interest as accrued interest payable.",
+      "evidence": [
+        "03 CASE FILES - Open and Investigate/09 Loans Owner Card and Legal Problems.pdf, pp. 1-2 p. 1",
+        "03 CASE FILES - Open and Investigate/11 Evidence Received After Takeover.pdf, p. 1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "D062",
+      "category": "classification",
+      "reviewTier": "operational",
+      "question": "Classify Unpaid payroll.",
+      "answer": "Classify EUR 32,000 unpaid payroll as payroll liability.",
+      "evidence": [
+        "03 CASE FILES - Open and Investigate/07 Payroll Bonuses Contractors NEW.xlsx, Payroll rows 4-8 row 7",
+        "03 CASE FILES - Open and Investigate/02 Bank Export August.csv row 16"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "D063",
+      "category": "classification",
+      "reviewTier": "operational",
+      "question": "Classify Unpaid suppliers.",
+      "answer": "Classify EUR 126,000 unpaid suppliers as trade payables.",
+      "evidence": [
+        "03 CASE FILES - Open and Investigate/06 Purchases Invoices and Goods Received.pdf, pp. 1-2 p. 1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "D064",
+      "category": "classification",
+      "reviewTier": "material_judgment",
+      "question": "Classify Delivered NorthStar contract.",
+      "answer": "Recognize EUR 180,000 NorthStar contract as delivered revenue.",
+      "evidence": [
+        "03 CASE FILES - Open and Investigate/03 CRM Export Cleaned FINAL.xlsx, CRM Export rows 4-11 row 4",
+        "03 CASE FILES - Open and Investigate/04 Contracts Returns and Angry Customers.pdf, pp. 1-2 p. 1",
+        "03 CASE FILES - Open and Investigate/02 Bank Export August.csv row 3"
+      ],
+      "confidence": "high",
+      "aiProposal": "Agent 1: Recognize NorthStar revenue on acceptance date.",
+      "independentChallenge": "Agent 2: Customer name variations create matching risk, but amount/date/bank description corroborate the same transaction.",
+      "studentReasoning": "Signed acceptance and full collection support revenue recognition for the delivered boxes.",
+      "statementEffect": {
+        "profit": 180000.0,
+        "cash": 180000.0,
+        "assets": 0.0,
+        "liabilities": 0.0,
+        "equity": 180000.0
+      },
+      "changedFromAI": false
+    },
+    {
+      "id": "D065",
+      "category": "classification",
+      "reviewTier": "material_judgment",
+      "question": "Classify Delivered Freedom contract.",
+      "answer": "Recognize EUR 200,000 Freedom contract as delivered revenue with EUR 58,000 receivable.",
+      "evidence": [
+        "03 CASE FILES - Open and Investigate/03 CRM Export Cleaned FINAL.xlsx, CRM Export rows 4-11 row 5",
+        "03 CASE FILES - Open and Investigate/04 Contracts Returns and Angry Customers.pdf, pp. 1-2 p. 1",
+        "03 CASE FILES - Open and Investigate/02 Bank Export August.csv row 5"
+      ],
+      "confidence": "high",
+      "aiProposal": "Agent 1: Recognize full invoice revenue because delivery was accepted.",
+      "independentChallenge": "Agent 2: Only EUR 142,000 was collected, but collection affects receivables, not whether delivery occurred.",
+      "studentReasoning": "Accepted delivery on 18 March satisfies revenue recognition despite partial cash collection.",
+      "statementEffect": {
+        "profit": 200000.0,
+        "cash": 142000.0,
+        "assets": 58000.0,
+        "liabilities": 0.0,
+        "equity": 200000.0
+      },
+      "changedFromAI": false
+    },
+    {
+      "id": "D066",
+      "category": "classification",
+      "reviewTier": "material_judgment",
+      "question": "Classify Completed Phoenix event.",
+      "answer": "Recognize EUR 100,000 Phoenix event revenue with EUR 30,000 receivable.",
+      "evidence": [
+        "03 CASE FILES - Open and Investigate/03 CRM Export Cleaned FINAL.xlsx, CRM Export rows 4-11 row 6",
+        "03 CASE FILES - Open and Investigate/04 Contracts Returns and Angry Customers.pdf, pp. 1-2 p. 1",
+        "03 CASE FILES - Open and Investigate/02 Bank Export August.csv row 6"
+      ],
+      "confidence": "medium",
+      "aiProposal": "Agent 1: Recognize revenue when the event was completed.",
+      "independentChallenge": "Agent 2: Acceptance is by email rather than signed page, so confidence is slightly lower but still sufficient.",
+      "studentReasoning": "Customer completion evidence and bank receipt support recognition of the completed event.",
+      "statementEffect": {
+        "profit": 100000.0,
+        "cash": 70000.0,
+        "assets": 30000.0,
+        "liabilities": 0.0,
+        "equity": 100000.0
+      },
+      "changedFromAI": false
+    },
+    {
+      "id": "D067",
+      "category": "classification",
+      "reviewTier": "material_judgment",
+      "question": "Classify Delivered Liberty order.",
+      "answer": "Recognize EUR 120,000 Liberty delivered order with EUR 25,000 receivable.",
+      "evidence": [
+        "03 CASE FILES - Open and Investigate/03 CRM Export Cleaned FINAL.xlsx, CRM Export rows 4-11 row 7",
+        "03 CASE FILES - Open and Investigate/04 Contracts Returns and Angry Customers.pdf, pp. 1-2 p. 1",
+        "03 CASE FILES - Open and Investigate/02 Bank Export August.csv row 7"
+      ],
+      "confidence": "high",
+      "aiProposal": "Agent 1: Recognize Liberty revenue on delivery acceptance.",
+      "independentChallenge": "Agent 2: The customer message supports acceptance; unpaid EUR 25,000 remains receivable.",
+      "studentReasoning": "The order was delivered and accepted in full by 20 June.",
+      "statementEffect": {
+        "profit": 120000.0,
+        "cash": 95000.0,
+        "assets": 25000.0,
+        "liabilities": 0.0,
+        "equity": 120000.0
+      },
+      "changedFromAI": false
+    },
+    {
+      "id": "D068",
+      "category": "classification",
+      "reviewTier": "material_judgment",
+      "question": "Classify Undelivered September events.",
+      "answer": "Do not recognize revenue for undelivered September events at 31 August.",
+      "evidence": [
+        "03 CASE FILES - Open and Investigate/04 Contracts Returns and Angry Customers.pdf, pp. 1-2 p. 2",
+        "03 CASE FILES - Open and Investigate/03 CRM Export Cleaned FINAL.xlsx, CRM Export rows 4-11 rows 10-11",
+        "03 CASE FILES - Open and Investigate/02 Bank Export August.csv rows 10-11"
+      ],
+      "confidence": "high",
+      "aiProposal": "Agent 1: Defer September events entirely.",
+      "independentChallenge": "Agent 2: The deposits are persuasive cash evidence but not delivery evidence; liability treatment is required.",
+      "studentReasoning": "No service was delivered by reporting date, so revenue recognition waits until September performance.",
+      "statementEffect": {
+        "profit": -90000.0,
+        "cash": 0.0,
+        "assets": 0.0,
+        "liabilities": 90000.0,
+        "equity": -90000.0
+      },
+      "changedFromAI": false
+    },
+    {
+      "id": "D069",
+      "category": "classification",
+      "reviewTier": "operational",
+      "question": "Classify Loan principal payment.",
+      "answer": "Classify EUR 19,000 loan principal payment as financing cash outflow and reduction of loan liability.",
+      "evidence": [
+        "03 CASE FILES - Open and Investigate/02 Bank Export August.csv row 25",
+        "03 CASE FILES - Open and Investigate/09 Loans Owner Card and Legal Problems.pdf, pp. 1-2 p. 1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "D070",
+      "category": "classification",
+      "reviewTier": "operational",
+      "question": "Classify Equipment purchase.",
+      "answer": "Classify equipment purchases totaling EUR 80,000 as PPE additions.",
+      "evidence": [
+        "03 CASE FILES - Open and Investigate/02 Bank Export August.csv rows 22-23",
+        "03 CASE FILES - Open and Investigate/06 Purchases Invoices and Goods Received.pdf, pp. 1-2 p. 2"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "D071",
+      "category": "estimation",
+      "reviewTier": "material_judgment",
+      "question": "Estimate Closing bad-debt allowance/write-off and document the basis.",
+      "answer": "Estimate closing bad-debt write-off/allowance at EUR 18,000.",
+      "evidence": [
+        "03 CASE FILES - Open and Investigate/04 Contracts Returns and Angry Customers.pdf, pp. 1-2 p. 2",
+        "03 CASE FILES - Open and Investigate/11 Evidence Received After Takeover.pdf, p. 1"
+      ],
+      "confidence": "high",
+      "aiProposal": "Agent 1: Use EUR 18,000 because the liquidator says no recovery.",
+      "independentChallenge": "Agent 2: It is after-date evidence, but it confirms a reporting-date insolvency rather than a new event.",
+      "studentReasoning": "The specific R-17 balance is identified and no distribution is expected, so the best estimate is the full EUR 18,000.",
+      "statementEffect": {
+        "profit": -18000.0,
+        "cash": 0.0,
+        "assets": -18000.0,
+        "liabilities": 0.0,
+        "equity": -18000.0
+      },
+      "changedFromAI": false
+    },
+    {
+      "id": "D072",
+      "category": "estimation",
+      "reviewTier": "material_judgment",
+      "question": "Estimate Damaged inventory write-off and document the basis.",
+      "answer": "Estimate damaged inventory write-off at EUR 22,000; disclose the EUR 2,000 disposal quote as uncertainty only.",
+      "evidence": [
+        "03 CASE FILES - Open and Investigate/05 Warehouse Count Marta Notes.pdf, pp. 1-2",
+        "03 CASE FILES - Open and Investigate/11 Evidence Received After Takeover.pdf, p. 1"
+      ],
+      "confidence": "medium",
+      "aiProposal": "Agent 1: Write off full carrying value and accrue disposal quote.",
+      "independentChallenge": "Agent 2: The disposal quote is approximate and future-oriented; disclose it unless the evidence proves a present obligation at 31 August.",
+      "studentReasoning": "The stock is unsaleable, so the EUR 22,000 carrying value is written off. The EUR 2,000 quote is not recognized because the evidence does not clearly establish a present obligation at 31 August.",
+      "statementEffect": {
+        "profit": -22000.0,
+        "cash": 0.0,
+        "assets": -22000.0,
+        "liabilities": 0.0,
+        "equity": -22000.0
+      },
+      "changedFromAI": true
+    },
+    {
+      "id": "D073",
+      "category": "estimation",
+      "reviewTier": "material_judgment",
+      "question": "Estimate Legal provision and document the basis.",
+      "answer": "Estimate legal provision at EUR 25,000.",
+      "evidence": [
+        "03 CASE FILES - Open and Investigate/09 Loans Owner Card and Legal Problems.pdf, pp. 1-2 p. 2",
+        "03 CASE FILES - Open and Investigate/11 Evidence Received After Takeover.pdf, p. 1"
+      ],
+      "confidence": "medium",
+      "aiProposal": "Agent 1: Use external counsel's best estimate.",
+      "independentChallenge": "Agent 2: The range is broad enough to disclose uncertainty, but the best estimate is the most supportable single point.",
+      "studentReasoning": "The claim is probable at the reporting date and can be estimated; use counsel's best estimate.",
+      "statementEffect": {
+        "profit": -25000.0,
+        "cash": 0.0,
+        "assets": 0.0,
+        "liabilities": 25000.0,
+        "equity": -25000.0
+      },
+      "changedFromAI": false
+    },
+    {
+      "id": "D074",
+      "category": "estimation",
+      "reviewTier": "material_judgment",
+      "question": "Estimate Period depreciation and document the basis.",
+      "answer": "Estimate period depreciation at EUR 24,000.",
+      "evidence": [
+        "03 CASE FILES - Open and Investigate/08 Assets Repairs Leases Maybe.xlsx, Assets rows 4-8 row 8"
+      ],
+      "confidence": "medium",
+      "aiProposal": "Agent 1: Book EUR 24,000 from the independent schedule.",
+      "independentChallenge": "Agent 2: Useful life detail is limited, so the estimate should be treated as medium-confidence but still booked.",
+      "studentReasoning": "Management booked zero; the supplied independent estimate is the only depreciation basis in the case.",
+      "statementEffect": {
+        "profit": -24000.0,
+        "cash": 0.0,
+        "assets": -24000.0,
+        "liabilities": 0.0,
+        "equity": -24000.0
+      },
+      "changedFromAI": false
+    },
+    {
+      "id": "D075",
+      "category": "estimation",
+      "reviewTier": "material_judgment",
+      "question": "Estimate Closing inventory and document the basis.",
+      "answer": "Estimate closing inventory at EUR 112,000 after COGS and damaged-stock write-off.",
+      "evidence": [
+        "03 CASE FILES - Open and Investigate/05 Warehouse Count Marta Notes.pdf, pp. 1-2",
+        "03 CASE FILES - Open and Investigate/06 Purchases Invoices and Goods Received.pdf, pp. 1-2"
+      ],
+      "confidence": "medium",
+      "aiProposal": "Agent 1: Roll forward inventory as opening EUR 80,000 + purchases EUR 459,000 - consumed EUR 405,000 - write-off EUR 22,000 = EUR 112,000.",
+      "independentChallenge": "Agent 2: The physical saleable count implies EUR 121,000, so the EUR 9,000 difference must be disclosed.",
+      "studentReasoning": "I use the direct COGS and purchase roll-forward for the reconciled statements and disclose the EUR 9,000 count variance.",
+      "statementEffect": {
+        "profit": -427000.0,
+        "cash": 0.0,
+        "assets": 112000.0,
+        "liabilities": 0.0,
+        "equity": -427000.0
+      },
+      "changedFromAI": false
+    },
+    {
+      "id": "D076",
+      "category": "estimation",
+      "reviewTier": "operational",
+      "question": "Estimate Closing receivables and document the basis.",
+      "answer": "Estimate closing net receivables at EUR 168,000: EUR 186,000 gross less EUR 18,000 R-17 write-off.",
+      "evidence": [
+        "03 CASE FILES - Open and Investigate/03 CRM Export Cleaned FINAL.xlsx, CRM Export rows 4-11 rows 5-9",
+        "03 CASE FILES - Open and Investigate/04 Contracts Returns and Angry Customers.pdf, pp. 1-2 p. 2",
+        "03 CASE FILES - Open and Investigate/11 Evidence Received After Takeover.pdf, p. 1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "D077",
+      "category": "estimation",
+      "reviewTier": "operational",
+      "question": "Estimate Repair versus improvement amount and document the basis.",
+      "answer": "Repair versus improvement amount is EUR 10,000 repair expense and EUR 0 capital improvement.",
+      "evidence": [
+        "03 CASE FILES - Open and Investigate/06 Purchases Invoices and Goods Received.pdf, pp. 1-2 p. 2",
+        "03 CASE FILES - Open and Investigate/08 Assets Repairs Leases Maybe.xlsx, Assets rows 4-8 row 7"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "D078",
+      "category": "estimation",
+      "reviewTier": "operational",
+      "question": "Estimate Insurance expense and document the basis.",
+      "answer": "Insurance expense is estimated at EUR 0 because the supplied bank, invoice and operating evidence contains no insurance item.",
+      "evidence": [
+        "03 CASE FILES - Open and Investigate/02 Bank Export August.csv",
+        "01 START HERE - Student Assignment.pdf, pp. 1-3"
+      ],
+      "confidence": "low"
+    },
+    {
+      "id": "D079",
+      "category": "estimation",
+      "reviewTier": "operational",
+      "question": "Estimate Interest payable and document the basis.",
+      "answer": "Interest payable is EUR 2,000: EUR 12,000 expense less EUR 10,000 paid.",
+      "evidence": [
+        "03 CASE FILES - Open and Investigate/09 Loans Owner Card and Legal Problems.pdf, pp. 1-2 p. 1",
+        "03 CASE FILES - Open and Investigate/11 Evidence Received After Takeover.pdf, p. 1",
+        "03 CASE FILES - Open and Investigate/02 Bank Export August.csv row 24"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "D080",
+      "category": "estimation",
+      "reviewTier": "operational",
+      "question": "Estimate Accrued payroll and document the basis.",
+      "answer": "Accrued payroll is EUR 32,000: EUR 15,000 opening liability plus EUR 248,000 employee payroll expense less EUR 231,000 cash paid.",
+      "evidence": [
+        "03 CASE FILES - Open and Investigate/07 Payroll Bonuses Contractors NEW.xlsx, Payroll rows 4-8 row 7",
+        "03 CASE FILES - Open and Investigate/02 Bank Export August.csv row 16"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "D081",
+      "category": "estimation",
+      "reviewTier": "operational",
+      "question": "Estimate Customer deposit liability and document the basis.",
+      "answer": "Customer deposit liability is EUR 90,000 for September events not delivered by 31 August.",
+      "evidence": [
+        "03 CASE FILES - Open and Investigate/02 Bank Export August.csv rows 10-11",
+        "03 CASE FILES - Open and Investigate/04 Contracts Returns and Angry Customers.pdf, pp. 1-2 p. 2"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "D082",
+      "category": "estimation",
+      "reviewTier": "operational",
+      "question": "Estimate PPE closing cost and document the basis.",
+      "answer": "PPE closing cost is EUR 260,000: EUR 180,000 opening cost plus EUR 80,000 equipment additions.",
+      "evidence": [
+        "03 CASE FILES - Open and Investigate/08 Assets Repairs Leases Maybe.xlsx, Assets rows 4-8 rows 4-6",
+        "03 CASE FILES - Open and Investigate/02 Bank Export August.csv rows 22-23"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "D083",
+      "category": "estimation",
+      "reviewTier": "operational",
+      "question": "Estimate Accumulated depreciation and document the basis.",
+      "answer": "Accumulated depreciation is EUR 69,000: EUR 45,000 opening plus EUR 24,000 period depreciation.",
+      "evidence": [
+        "03 CASE FILES - Open and Investigate/08 Assets Repairs Leases Maybe.xlsx, Assets rows 4-8 rows 4 and 8"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "D084",
+      "category": "estimation",
+      "reviewTier": "operational",
+      "question": "Estimate Supplier payable and document the basis.",
+      "answer": "Supplier payable is EUR 126,000 from independently confirmed supplier balances.",
+      "evidence": [
+        "03 CASE FILES - Open and Investigate/06 Purchases Invoices and Goods Received.pdf, pp. 1-2 p. 1"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "D085",
+      "category": "estimation",
+      "reviewTier": "operational",
+      "question": "Estimate Closing loan and document the basis.",
+      "answer": "Closing loan is EUR 131,000: EUR 100,000 opening loan plus EUR 50,000 advance less EUR 19,000 principal repaid.",
+      "evidence": [
+        "03 CASE FILES - Open and Investigate/09 Loans Owner Card and Legal Problems.pdf, pp. 1-2 p. 1",
+        "03 CASE FILES - Open and Investigate/11 Evidence Received After Takeover.pdf, p. 1",
+        "03 CASE FILES - Open and Investigate/02 Bank Export August.csv rows 4 and 25"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "D086",
+      "category": "estimation",
+      "reviewTier": "operational",
+      "question": "Estimate Physical COGS and document the basis.",
+      "answer": "Physical COGS is EUR 405,000 for materials consumed on valid delivered sales.",
+      "evidence": [
+        "03 CASE FILES - Open and Investigate/05 Warehouse Count Marta Notes.pdf, pp. 1-2 p. 2"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "D087",
+      "category": "estimation",
+      "reviewTier": "operational",
+      "question": "Estimate Service direct payroll and document the basis.",
+      "answer": "Service direct payroll is EUR 80,000 for event delivery staff.",
+      "evidence": [
+        "03 CASE FILES - Open and Investigate/07 Payroll Bonuses Contractors NEW.xlsx, Payroll rows 4-8 row 4"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "D088",
+      "category": "estimation",
+      "reviewTier": "operational",
+      "question": "Estimate Owner distributions and document the basis.",
+      "answer": "Owner distributions total EUR 110,000: EUR 70,000 villa plus EUR 40,000 owner card spending.",
+      "evidence": [
+        "03 CASE FILES - Open and Investigate/02 Bank Export August.csv rows 26-27",
+        "03 CASE FILES - Open and Investigate/09 Loans Owner Card and Legal Problems.pdf, pp. 1-2 p. 1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "D089",
+      "category": "estimation",
+      "reviewTier": "operational",
+      "question": "Estimate Net profit and document the basis.",
+      "answer": "Corrected net profit is EUR 65,000.",
+      "evidence": [
+        "03 CASE FILES - Open and Investigate/03 CRM Export Cleaned FINAL.xlsx, CRM Export rows 4-11",
+        "03 CASE FILES - Open and Investigate/05 Warehouse Count Marta Notes.pdf, pp. 1-2",
+        "03 CASE FILES - Open and Investigate/07 Payroll Bonuses Contractors NEW.xlsx, Payroll rows 4-8",
+        "03 CASE FILES - Open and Investigate/08 Assets Repairs Leases Maybe.xlsx, Assets rows 4-8",
+        "03 CASE FILES - Open and Investigate/09 Loans Owner Card and Legal Problems.pdf, pp. 1-2",
+        "03 CASE FILES - Open and Investigate/11 Evidence Received After Takeover.pdf, p. 1"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "D090",
+      "category": "estimation",
+      "reviewTier": "operational",
+      "question": "Estimate Closing cash and document the basis.",
+      "answer": "Closing cash is EUR 60,000, agreeing to the bank export and bank confirmation.",
+      "evidence": [
+        "03 CASE FILES - Open and Investigate/02 Bank Export August.csv row 27",
+        "03 CASE FILES - Open and Investigate/11 Evidence Received After Takeover.pdf, p. 1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "D091",
+      "category": "board_decision",
+      "reviewTier": "material_judgment",
+      "question": "Approve corrected accounts before valuation",
+      "answer": "Approve the corrected accounts for valuation only after recording the adjustments and disclosed uncertainties.",
+      "evidence": [
+        "01 START HERE - Student Assignment.pdf, pp. 1-3 required checks",
+        "03 CASE FILES - Open and Investigate/01 USE THIS NUMBERS FINAL v9.xlsx, Management P&L rows 4-11",
+        "03 CASE FILES - Open and Investigate/11 Evidence Received After Takeover.pdf, p. 1"
+      ],
+      "confidence": "medium",
+      "aiProposal": "Agent 1: Approve corrected accounts because they reconcile.",
+      "independentChallenge": "Agent 2: Approve only with caveats because inventory and supplier timing differences remain unresolved.",
+      "studentReasoning": "The corrected statements reconcile to bank cash and the balance sheet, but valuation should consider disclosed control weaknesses and uncertainty.",
+      "statementEffect": {
+        "profit": 65000.0,
+        "cash": 60000.0,
+        "assets": 576000.0,
+        "liabilities": 406000.0,
+        "equity": 170000.0
+      },
+      "changedFromAI": false
+    },
+    {
+      "id": "D092",
+      "category": "board_decision",
+      "reviewTier": "operational",
+      "question": "Freeze owner-card access",
+      "answer": "Freeze owner-card access immediately because EUR 110,000 of owner spending lacks business support.",
+      "evidence": [
+        "03 CASE FILES - Open and Investigate/02 Bank Export August.csv rows 26-27",
+        "03 CASE FILES - Open and Investigate/09 Loans Owner Card and Legal Problems.pdf, pp. 1-2 p. 1",
+        "03 CASE FILES - Open and Investigate/10 Email and WhatsApp Dump DO NOT FORWARD.pdf, pp. 1-3 p. 2"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "D093",
+      "category": "board_decision",
+      "reviewTier": "operational",
+      "question": "Move September deposits to contract liabilities",
+      "answer": "Move the EUR 90,000 September deposits to contract liabilities.",
+      "evidence": [
+        "03 CASE FILES - Open and Investigate/02 Bank Export August.csv rows 10-11",
+        "03 CASE FILES - Open and Investigate/04 Contracts Returns and Angry Customers.pdf, pp. 1-2 p. 2"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "D094",
+      "category": "board_decision",
+      "reviewTier": "operational",
+      "question": "Begin weekly 13-week cash forecast",
+      "answer": "Begin a weekly 13-week cash forecast because closing cash is only EUR 60,000 with supplier, payroll, loan and provision obligations outstanding.",
+      "evidence": [
+        "03 CASE FILES - Open and Investigate/02 Bank Export August.csv row 27",
+        "03 CASE FILES - Open and Investigate/11 Evidence Received After Takeover.pdf, p. 1",
+        "03 CASE FILES - Open and Investigate/06 Purchases Invoices and Goods Received.pdf, pp. 1-2 p. 1"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "D095",
+      "category": "board_decision",
+      "reviewTier": "operational",
+      "question": "Stop credit sales to insolvent/high-risk customers",
+      "answer": "Stop credit sales to insolvent or high-risk customers until credit controls are rebuilt.",
+      "evidence": [
+        "03 CASE FILES - Open and Investigate/04 Contracts Returns and Angry Customers.pdf, pp. 1-2 p. 2",
+        "03 CASE FILES - Open and Investigate/11 Evidence Received After Takeover.pdf, p. 1",
+        "03 CASE FILES - Open and Investigate/10 Email and WhatsApp Dump DO NOT FORWARD.pdf, pp. 1-3 p. 3"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "D096",
+      "category": "board_decision",
+      "reviewTier": "operational",
+      "question": "Dispose of damaged stock",
+      "answer": "Dispose of the damaged basement stock and disclose the EUR 2,000 disposal quote as an uncertainty until a present obligation is confirmed.",
+      "evidence": [
+        "03 CASE FILES - Open and Investigate/05 Warehouse Count Marta Notes.pdf, pp. 1-2",
+        "03 CASE FILES - Open and Investigate/11 Evidence Received After Takeover.pdf, p. 1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "D097",
+      "category": "board_decision",
+      "reviewTier": "operational",
+      "question": "Investigate management override and duplicate sources",
+      "answer": "Investigate management override, duplicate sources and embedded manipulation attempts.",
+      "evidence": [
+        "03 CASE FILES - Open and Investigate/01 USE THIS NUMBERS FINAL v9.xlsx, Management P&L rows 4-11",
+        "03 CASE FILES - Open and Investigate/10 Email and WhatsApp Dump DO NOT FORWARD.pdf, pp. 1-3",
+        "03 CASE FILES - Open and Investigate/00 BOARD ORDER READ FIRST.pdf, p. 1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "D098",
+      "category": "board_decision",
+      "reviewTier": "operational",
+      "question": "Renegotiate supplier terms",
+      "answer": "Renegotiate supplier terms because confirmed payables are EUR 126,000 and cash is constrained.",
+      "evidence": [
+        "03 CASE FILES - Open and Investigate/06 Purchases Invoices and Goods Received.pdf, pp. 1-2 p. 1",
+        "03 CASE FILES - Open and Investigate/02 Bank Export August.csv row 27"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "D099",
+      "category": "board_decision",
+      "reviewTier": "operational",
+      "question": "Continue core Finally Single and event operations",
+      "answer": "Continue the core Finally Single and event operations, but under corrected controls; delivered revenue supports the business even though management reporting was unreliable.",
+      "evidence": [
+        "03 CASE FILES - Open and Investigate/03 CRM Export Cleaned FINAL.xlsx, CRM Export rows 4-11 rows 4-9",
+        "03 CASE FILES - Open and Investigate/04 Contracts Returns and Angry Customers.pdf, pp. 1-2 p. 1",
+        "03 CASE FILES - Open and Investigate/02 Bank Export August.csv"
+      ],
+      "confidence": "medium"
+    },
+    {
+      "id": "D100",
+      "category": "board_decision",
+      "reviewTier": "material_judgment",
+      "question": "Use claimed management profit for earn-out",
+      "answer": "Do not use management's claimed EUR 312,000 profit for earn-out; use corrected profit of EUR 65,000 with uncertainty disclosures.",
+      "evidence": [
+        "03 CASE FILES - Open and Investigate/01 USE THIS NUMBERS FINAL v9.xlsx, Management P&L rows 4-11 row 8",
+        "03 CASE FILES - Open and Investigate/10 Email and WhatsApp Dump DO NOT FORWARD.pdf, pp. 1-3 p. 1",
+        "03 CASE FILES - Open and Investigate/11 Evidence Received After Takeover.pdf, p. 1"
+      ],
+      "confidence": "high",
+      "aiProposal": "Agent 1: Reject the management profit and use corrected accounts.",
+      "independentChallenge": "Agent 2: Management's file is still evidence of what was claimed, but it is not reliable for earn-out measurement.",
+      "studentReasoning": "The management P&L includes deposits as revenue, loan income, omitted provisions and unsupported owner costs; the earn-out must use reconciled accounts.",
+      "statementEffect": {
+        "profit": -247000.0,
+        "cash": 0.0,
+        "assets": 0.0,
+        "liabilities": 0.0,
+        "equity": -247000.0
+      },
+      "changedFromAI": false
+    }
+  ],
+  "schedules": {
+    "revenueAndReceivables": {
+      "lines": [
+        {
+          "customer": "NorthStar Events",
+          "invoice": "INV-26012",
+          "product": "Finally Single Boxes",
+          "revenue": 180000,
+          "cash": 180000,
+          "grossReceivable": 0,
+          "badDebt": 0,
+          "netReceivable": 0,
+          "evidence": [
+            "03 CASE FILES - Open and Investigate/02 Bank Export August.csv row 3",
+            "03 CASE FILES - Open and Investigate/03 CRM Export Cleaned FINAL.xlsx, CRM Export rows 4-11 row 4",
+            "03 CASE FILES - Open and Investigate/04 Contracts Returns and Angry Customers.pdf, pp. 1-2 p. 1"
+          ]
+        },
+        {
+          "customer": "Freedom Festivals",
+          "invoice": "INV-26031",
+          "product": "Never Call Back Boxes",
+          "revenue": 200000,
+          "cash": 142000,
+          "grossReceivable": 58000,
+          "badDebt": 0,
+          "netReceivable": 58000,
+          "evidence": [
+            "03 CASE FILES - Open and Investigate/02 Bank Export August.csv row 5",
+            "03 CASE FILES - Open and Investigate/03 CRM Export Cleaned FINAL.xlsx, CRM Export rows 4-11 row 5",
+            "03 CASE FILES - Open and Investigate/04 Contracts Returns and Angry Customers.pdf, pp. 1-2 p. 1"
+          ]
+        },
+        {
+          "customer": "Phoenix People",
+          "invoice": "INV-26047",
+          "product": "Divorce Victory Party",
+          "revenue": 100000,
+          "cash": 70000,
+          "grossReceivable": 30000,
+          "badDebt": 0,
+          "netReceivable": 30000,
+          "evidence": [
+            "03 CASE FILES - Open and Investigate/02 Bank Export August.csv row 6",
+            "03 CASE FILES - Open and Investigate/03 CRM Export Cleaned FINAL.xlsx, CRM Export rows 4-11 row 6",
+            "03 CASE FILES - Open and Investigate/04 Contracts Returns and Angry Customers.pdf, pp. 1-2 p. 1"
+          ]
+        },
+        {
+          "customer": "Liberty Hotels",
+          "invoice": "INV-26063",
+          "product": "Mixed boxes",
+          "revenue": 120000,
+          "cash": 95000,
+          "grossReceivable": 25000,
+          "badDebt": 0,
+          "netReceivable": 25000,
+          "evidence": [
+            "03 CASE FILES - Open and Investigate/02 Bank Export August.csv row 7",
+            "03 CASE FILES - Open and Investigate/03 CRM Export Cleaned FINAL.xlsx, CRM Export rows 4-11 row 7",
+            "03 CASE FILES - Open and Investigate/04 Contracts Returns and Angry Customers.pdf, pp. 1-2 p. 1"
+          ]
+        },
+        {
+          "customer": "Various web buyers",
+          "invoice": "WEB-FSB",
+          "product": "Finally Single Boxes",
+          "revenue": 270000,
+          "cash": 250000,
+          "grossReceivable": 20000,
+          "badDebt": 0,
+          "netReceivable": 20000,
+          "evidence": [
+            "03 CASE FILES - Open and Investigate/02 Bank Export August.csv row 8",
+            "03 CASE FILES - Open and Investigate/03 CRM Export Cleaned FINAL.xlsx, CRM Export rows 4-11 row 8"
+          ]
+        },
+        {
+          "customer": "Various web buyers",
+          "invoice": "WEB-NCB",
+          "product": "Never Call Back Boxes",
+          "revenue": 90000,
+          "cash": 37000,
+          "grossReceivable": 53000,
+          "badDebt": 18000,
+          "netReceivable": 35000,
+          "evidence": [
+            "03 CASE FILES - Open and Investigate/02 Bank Export August.csv row 9",
+            "03 CASE FILES - Open and Investigate/03 CRM Export Cleaned FINAL.xlsx, CRM Export rows 4-11 row 9",
+            "03 CASE FILES - Open and Investigate/04 Contracts Returns and Angry Customers.pdf, pp. 1-2 p. 2",
+            "03 CASE FILES - Open and Investigate/11 Evidence Received After Takeover.pdf, p. 1"
+          ]
+        }
+      ],
+      "openingReceivableCollected": 35000,
+      "deliveredRevenue": 960000,
+      "cashFromDeliveredSales": 774000,
+      "customerDeposits": [
+        {
+          "customer": "New Beginnings USA",
+          "amount": 60000,
+          "deliveryDate": "2026-09-15",
+          "treatment": "Contract liability at 31 August 2026",
+          "evidence": [
+            "03 CASE FILES - Open and Investigate/02 Bank Export August.csv row 10",
+            "03 CASE FILES - Open and Investigate/03 CRM Export Cleaned FINAL.xlsx, CRM Export rows 4-11 row 10",
+            "03 CASE FILES - Open and Investigate/04 Contracts Returns and Angry Customers.pdf, pp. 1-2 p. 2"
+          ]
+        },
+        {
+          "customer": "Fresh Freedom UK",
+          "amount": 30000,
+          "deliveryDate": "2026-09-24",
+          "treatment": "Contract liability at 31 August 2026",
+          "evidence": [
+            "03 CASE FILES - Open and Investigate/02 Bank Export August.csv row 11",
+            "03 CASE FILES - Open and Investigate/03 CRM Export Cleaned FINAL.xlsx, CRM Export rows 4-11 row 11",
+            "03 CASE FILES - Open and Investigate/04 Contracts Returns and Angry Customers.pdf, pp. 1-2 p. 2"
+          ]
+        }
+      ],
+      "grossReceivables": 186000,
+      "badDebtWriteOff": 18000,
+      "netReceivables": 168000
+    },
+    "inventoryAndCOGS": {
+      "openingInventory": 80000,
+      "purchasesGoodsReceived": 459000,
+      "materialsConsumedOnDeliveredSales": 405000,
+      "damagedStockWriteOff": 22000,
+      "damagedStockDisposalQuoteDisclosure": 2000,
+      "closingInventory": 112000,
+      "physicalCountBeforeWriteOff": 143000,
+      "saleablePhysicalCount": 121000,
+      "unexplainedCountVariance": 9000,
+      "evidence": [
+        "03 CASE FILES - Open and Investigate/05 Warehouse Count Marta Notes.pdf, pp. 1-2",
+        "03 CASE FILES - Open and Investigate/06 Purchases Invoices and Goods Received.pdf, pp. 1-2"
+      ]
+    },
+    "payroll": {
+      "eventDeliveryStaffExpense": 80000,
+      "eventDeliveryStaffCashPaid": 75000,
+      "salesExpense": 72000,
+      "salesCashPaid": 68000,
+      "officeFinanceExpense": 96000,
+      "officeFinanceCashPaid": 88000,
+      "employeePayrollExpense": 248000,
+      "employeePayrollCashPaid": 231000,
+      "openingPayrollLiability": 15000,
+      "closingPayrollLiability": 32000,
+      "founderBonusRejectedAsPayroll": 110000,
+      "evidence": [
+        "03 CASE FILES - Open and Investigate/07 Payroll Bonuses Contractors NEW.xlsx, Payroll rows 4-8",
+        "03 CASE FILES - Open and Investigate/02 Bank Export August.csv row 16"
+      ]
+    },
+    "operatingExpenses": {
+      "rent": 48000,
+      "marketing": 55000,
+      "software": 16000,
+      "utilities": 12000,
+      "repairExpense": 10000,
+      "badDebtExpense": 18000,
+      "damagedStockWriteOff": 22000,
+      "legalProvisionExpense": 25000,
+      "depreciation": 24000,
+      "evidence": [
+        "03 CASE FILES - Open and Investigate/02 Bank Export August.csv rows 17-21",
+        "03 CASE FILES - Open and Investigate/08 Assets Repairs Leases Maybe.xlsx, Assets rows 4-8",
+        "03 CASE FILES - Open and Investigate/04 Contracts Returns and Angry Customers.pdf, pp. 1-2 p. 2",
+        "03 CASE FILES - Open and Investigate/11 Evidence Received After Takeover.pdf, p. 1"
+      ]
+    },
+    "ppeAndDepreciation": {
+      "openingCost": 180000,
+      "openingAccumulatedDepreciation": 45000,
+      "additionsPackagingMachine": 60000,
+      "additionsPhotoBooth": 20000,
+      "closingCost": 260000,
+      "periodDepreciation": 24000,
+      "closingAccumulatedDepreciation": 69000,
+      "closingNetBookValue": 191000,
+      "evidence": [
+        "03 CASE FILES - Open and Investigate/08 Assets Repairs Leases Maybe.xlsx, Assets rows 4-8",
+        "03 CASE FILES - Open and Investigate/06 Purchases Invoices and Goods Received.pdf, pp. 1-2 p. 2",
+        "03 CASE FILES - Open and Investigate/02 Bank Export August.csv rows 22-23"
+      ]
+    },
+    "debtAndInterest": {
+      "openingLoan": 100000,
+      "newAdvance": 50000,
+      "principalRepaid": 19000,
+      "closingLoan": 131000,
+      "interestExpense": 12000,
+      "interestPaid": 10000,
+      "interestPayable": 2000,
+      "evidence": [
+        "03 CASE FILES - Open and Investigate/09 Loans Owner Card and Legal Problems.pdf, pp. 1-2 p. 1",
+        "03 CASE FILES - Open and Investigate/11 Evidence Received After Takeover.pdf, p. 1",
+        "03 CASE FILES - Open and Investigate/02 Bank Export August.csv rows 4, 24-25"
+      ]
+    },
+    "equityAndDistributions": {
+      "openingCash": 80000,
+      "openingReceivables": 35000,
+      "openingInventory": 80000,
+      "openingPPENet": 135000,
+      "openingLoan": 100000,
+      "openingPayrollLiability": 15000,
+      "openingEquity": 215000,
+      "profit": 65000,
+      "ownerDistributions": 110000,
+      "closingEquity": 170000,
+      "evidence": [
+        "03 CASE FILES - Open and Investigate/02 Bank Export August.csv rows 1, 26-27",
+        "03 CASE FILES - Open and Investigate/09 Loans Owner Card and Legal Problems.pdf, pp. 1-2",
+        "03 CASE FILES - Open and Investigate/07 Payroll Bonuses Contractors NEW.xlsx, Payroll rows 4-8",
+        "03 CASE FILES - Open and Investigate/08 Assets Repairs Leases Maybe.xlsx, Assets rows 4-8"
+      ]
+    },
+    "supplierPayablesAndPrepayment": {
+      "goodsReceived": 459000,
+      "supplierCashPaidPerBank": 378000,
+      "confirmedSupplierPayables": 126000,
+      "impliedPaidFromSupplierConfirmations": 333000,
+      "unexplainedSupplierPrepaymentOrTimingDifference": 45000,
+      "evidence": [
+        "03 CASE FILES - Open and Investigate/06 Purchases Invoices and Goods Received.pdf, pp. 1-2 p. 1",
+        "03 CASE FILES - Open and Investigate/02 Bank Export August.csv rows 12-15"
+      ]
+    }
+  },
+  "statements": {
+    "profitAndLoss": {
+      "revenue": 960000,
+      "physicalMaterialsCOGS": 405000,
+      "eventDeliveryPayrollCOGS": 80000,
+      "grossProfit": 475000,
+      "salesPayroll": 72000,
+      "officeFinancePayroll": 96000,
+      "rent": 48000,
+      "marketing": 55000,
+      "software": 16000,
+      "utilities": 12000,
+      "repairExpense": 10000,
+      "depreciation": 24000,
+      "badDebtExpense": 18000,
+      "inventoryWriteOff": 22000,
+      "legalProvisionExpense": 25000,
+      "operatingProfit": 77000,
+      "interestExpense": 12000,
+      "netProfit": 65000
+    },
+    "cashFlow": {
+      "openingCash": 80000,
+      "customerReceiptsIncludingDepositsAndOpeningAR": 899000,
+      "loanAdvance": 50000,
+      "supplierPayments": -378000,
+      "payrollPayments": -231000,
+      "rentPayments": -48000,
+      "marketingPayments": -55000,
+      "softwarePayments": -16000,
+      "utilitiesPayments": -12000,
+      "repairPayments": -10000,
+      "interestPaid": -10000,
+      "capitalExpenditure": -80000,
+      "loanPrincipalRepaid": -19000,
+      "ownerDistributions": -110000,
+      "closingCash": 60000
+    },
+    "balanceSheet": {
+      "assets": {
+        "cash": 60000,
+        "tradeReceivablesNet": 168000,
+        "inventory": 112000,
+        "supplierPrepaymentOrTimingDifference": 45000,
+        "ppeNet": 191000
+      },
+      "liabilities": {
+        "tradePayables": 126000,
+        "payrollPayable": 32000,
+        "customerDeposits": 90000,
+        "bankLoan": 131000,
+        "interestPayable": 2000,
+        "legalProvision": 25000
+      },
+      "equity": {
+        "closingEquity": 170000
+      },
+      "totalAssets": 576000,
+      "totalLiabilities": 406000,
+      "totalLiabilitiesAndEquity": 576000
+    }
+  },
+  "reconciliations": [
+    {
+      "name": "Balance sheet balances",
+      "status": "pass",
+      "calculation": "Assets EUR 576,000 = liabilities EUR 406,000 + equity EUR 170,000.",
+      "evidence": [
+        "03 CASE FILES - Open and Investigate/02 Bank Export August.csv",
+        "03 CASE FILES - Open and Investigate/11 Evidence Received After Takeover.pdf, p. 1"
+      ]
+    },
+    {
+      "name": "Closing cash",
+      "status": "pass",
+      "calculation": "Opening cash EUR 80,000 + inflows EUR 949,000 - outflows EUR 969,000 = EUR 60,000, agreeing to bank.",
+      "evidence": [
+        "03 CASE FILES - Open and Investigate/02 Bank Export August.csv rows 1-27",
+        "03 CASE FILES - Open and Investigate/11 Evidence Received After Takeover.pdf, p. 1"
+      ]
+    },
+    {
+      "name": "Revenue and receivables",
+      "status": "pass",
+      "calculation": "Delivered revenue EUR 960,000; gross AR EUR 186,000; less R-17 EUR 18,000; net AR EUR 168,000.",
+      "evidence": [
+        "03 CASE FILES - Open and Investigate/03 CRM Export Cleaned FINAL.xlsx, CRM Export rows 4-11",
+        "03 CASE FILES - Open and Investigate/04 Contracts Returns and Angry Customers.pdf, pp. 1-2",
+        "03 CASE FILES - Open and Investigate/11 Evidence Received After Takeover.pdf, p. 1"
+      ]
+    },
+    {
+      "name": "Inventory and COGS",
+      "status": "pass_with_uncertainty",
+      "calculation": "Opening EUR 80,000 + purchases EUR 459,000 - COGS EUR 405,000 - write-off EUR 22,000 = closing EUR 112,000; physical count implies EUR 121,000 saleable, leaving EUR 9,000 unresolved count variance.",
+      "evidence": [
+        "03 CASE FILES - Open and Investigate/05 Warehouse Count Marta Notes.pdf, pp. 1-2",
+        "03 CASE FILES - Open and Investigate/06 Purchases Invoices and Goods Received.pdf, pp. 1-2"
+      ]
+    },
+    {
+      "name": "PPE and depreciation",
+      "status": "pass",
+      "calculation": "Cost EUR 180,000 + additions EUR 80,000 = EUR 260,000; accumulated depreciation EUR 45,000 + EUR 24,000 = EUR 69,000; NBV EUR 191,000.",
+      "evidence": [
+        "03 CASE FILES - Open and Investigate/08 Assets Repairs Leases Maybe.xlsx, Assets rows 4-8",
+        "03 CASE FILES - Open and Investigate/06 Purchases Invoices and Goods Received.pdf, pp. 1-2"
+      ]
+    },
+    {
+      "name": "Debt and interest",
+      "status": "pass",
+      "calculation": "Loan EUR 100,000 + advance EUR 50,000 - principal EUR 19,000 = EUR 131,000; interest expense EUR 12,000 less paid EUR 10,000 = payable EUR 2,000.",
+      "evidence": [
+        "03 CASE FILES - Open and Investigate/09 Loans Owner Card and Legal Problems.pdf, pp. 1-2",
+        "03 CASE FILES - Open and Investigate/11 Evidence Received After Takeover.pdf, p. 1",
+        "03 CASE FILES - Open and Investigate/02 Bank Export August.csv"
+      ]
+    },
+    {
+      "name": "Equity roll-forward",
+      "status": "pass",
+      "calculation": "Opening equity EUR 215,000 + profit EUR 65,000 - distributions EUR 110,000 = closing equity EUR 170,000.",
+      "evidence": [
+        "03 CASE FILES - Open and Investigate/02 Bank Export August.csv",
+        "03 CASE FILES - Open and Investigate/09 Loans Owner Card and Legal Problems.pdf, pp. 1-2",
+        "03 CASE FILES - Open and Investigate/08 Assets Repairs Leases Maybe.xlsx, Assets rows 4-8",
+        "03 CASE FILES - Open and Investigate/07 Payroll Bonuses Contractors NEW.xlsx, Payroll rows 4-8"
+      ]
+    },
+    {
+      "name": "Supplier roll-forward",
+      "status": "pass_with_uncertainty",
+      "calculation": "Supplier confirmations show EUR 459,000 goods received and EUR 126,000 unpaid; bank shows EUR 378,000 paid, creating EUR 45,000 prepayment/timing difference used to balance the cash-backed statements.",
+      "evidence": [
+        "03 CASE FILES - Open and Investigate/06 Purchases Invoices and Goods Received.pdf, pp. 1-2",
+        "03 CASE FILES - Open and Investigate/02 Bank Export August.csv"
+      ]
+    }
+  ],
+  "uncertainties": [
+    {
+      "area": "Supplier payments",
+      "amount": 45000,
+      "confidence": "medium",
+      "description": "Bank payments exceed the amount implied by supplier confirmed invoices and payables by EUR 45,000. Classified as supplier prepayment/timing difference pending supplier statement detail.",
+      "evidence": [
+        "03 CASE FILES - Open and Investigate/02 Bank Export August.csv rows 12-15",
+        "03 CASE FILES - Open and Investigate/06 Purchases Invoices and Goods Received.pdf, pp. 1-2 p. 1"
+      ],
+      "statementImpact": "Assets include EUR 45,000 supplier prepayment/timing asset; no profit effect until resolved."
+    },
+    {
+      "area": "Inventory count variance",
+      "amount": 9000,
+      "confidence": "medium",
+      "description": "Warehouse physical count less damaged stock implies EUR 121,000 saleable inventory, while the purchase/COGS/write-off roll-forward gives EUR 112,000.",
+      "evidence": [
+        "03 CASE FILES - Open and Investigate/05 Warehouse Count Marta Notes.pdf, pp. 1-2"
+      ],
+      "statementImpact": "A different resolution could increase assets/equity and profit by up to EUR 9,000."
+    },
+    {
+      "area": "Damaged stock disposal quote",
+      "amount": 2000,
+      "confidence": "medium",
+      "description": "Independent quote indicates a possible future EUR 2,000 cost to remove damaged stock, but evidence does not clearly prove a present obligation at 31 August.",
+      "evidence": [
+        "03 CASE FILES - Open and Investigate/05 Warehouse Count Marta Notes.pdf, pp. 1-2",
+        "03 CASE FILES - Open and Investigate/11 Evidence Received After Takeover.pdf, p. 1"
+      ],
+      "statementImpact": "Disclosure only. If later recognized as a present obligation, profit and equity would decrease by EUR 2,000 and liabilities would increase by EUR 2,000."
+    },
+    {
+      "area": "Legal claim estimate",
+      "amount": 5000,
+      "confidence": "medium",
+      "description": "Counsel gives a EUR 20,000-EUR 30,000 range with EUR 25,000 best estimate.",
+      "evidence": [
+        "03 CASE FILES - Open and Investigate/09 Loans Owner Card and Legal Problems.pdf, pp. 1-2 p. 2",
+        "03 CASE FILES - Open and Investigate/11 Evidence Received After Takeover.pdf, p. 1"
+      ],
+      "statementImpact": "Profit, liabilities and equity could move by EUR 5,000 from the recorded best estimate."
+    },
+    {
+      "area": "Insurance",
+      "amount": 0,
+      "confidence": "low",
+      "description": "The answer template asks for insurance, but no insurance invoice or cash movement is present in the supplied evidence.",
+      "evidence": [
+        "03 CASE FILES - Open and Investigate/02 Bank Export August.csv",
+        "01 START HERE - Student Assignment.pdf, pp. 1-3"
+      ],
+      "statementImpact": "No amount recorded; any later evidence would change expense or prepayment."
+    }
+  ],
+  "boardRecommendation": {
+    "summary": "Do not rely on management's EUR 312,000 profit claim. Use corrected accounts showing EUR 65,000 profit, EUR 60,000 cash and material control weaknesses.",
+    "decision": "Approve corrected accounts for valuation with disclosed supplier and inventory uncertainties; reject management profit for earn-out purposes.",
+    "correctedProfit": 65000,
+    "closingCash": 60000,
+    "continueCoreBusiness": true,
+    "immediateActions": [
+      "Freeze owner-card access and require approval for any owner-related payments.",
+      "Move September customer deposits to contract liabilities and stop cash-equals-revenue reporting.",
+      "Start a weekly 13-week cash forecast.",
+      "Dispose of damaged basement stock and keep the EUR 2,000 disposal quote as a disclosed uncertainty until obligation evidence is clearer.",
+      "Investigate supplier payment mismatch, management override and embedded manipulation attempts."
+    ]
+  },
+  "aiReviewTrail": {
+    "method": "Agent 1 extracted evidence and proposed treatment. Agent 2 independently analyzed the same original evidence before comparison. Final answers are certified in the decisions array.",
+    "materialDecisionIds": [
+      "D041",
+      "D042",
+      "D043",
+      "D044",
+      "D045",
+      "D046",
+      "D047",
+      "D048",
+      "D049",
+      "D056",
+      "D057",
+      "D058",
+      "D059",
+      "D064",
+      "D065",
+      "D066",
+      "D067",
+      "D068",
+      "D071",
+      "D072",
+      "D073",
+      "D074",
+      "D075",
+      "D091",
+      "D100"
+    ],
+    "certification": "Final student answer reconciles to bank cash and balances after recording disclosed supplier and inventory uncertainties."
+  }
+}

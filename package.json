@@ -1,0 +1,11 @@
+{
+  "name": "dpi-ht-01-financial-crime-scene",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "node scripts/build_static.mjs",
+    "validate": "node scripts/build_static.mjs --validate-only",
+    "start": "node scripts/server.mjs"
+  },
+  "devDependencies": {}
+}
