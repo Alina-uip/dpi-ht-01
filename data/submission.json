@@ -2,8 +2,8 @@
   "schemaVersion": "1.0",
   "caseId": "DPI-HT-01",
   "student": {
-    "id": "STUDENT-ID-PLACEHOLDER",
-    "name": "STUDENT-NAME-PLACEHOLDER"
+    "id": "not provided",
+    "name": "Alina"
   },
   "evidence": [
     {
@@ -480,12 +480,12 @@
       "category": "evidence_matching",
       "reviewTier": "operational",
       "question": "Resolve the source and treatment of Insurance movement.",
-      "answer": "No insurance cash movement or invoice is supplied; record no insurance expense/prepayment in corrected accounts.",
+      "answer": "Resolve insurance as an opening prepaid asset: EUR 12,000 opening prepaid insurance, EUR 4,000 consumed as expense, and EUR 8,000 closing prepaid insurance.",
       "evidence": [
-        "03 CASE FILES - Open and Investigate/02 Bank Export August.csv",
-        "01 START HERE - Student Assignment.pdf, pp. 1-3"
+        "Teacher correction comments supplied by student on 22 Sep 2026: opening prepaid insurance EUR 12,000; insurance expense EUR 4,000; closing prepaid insurance EUR 8,000",
+        "03 CASE FILES - Open and Investigate/02 Bank Export August.csv"
       ],
-      "confidence": "low"
+      "confidence": "high"
     },
     {
       "id": "D035",
@@ -936,12 +936,11 @@
       "category": "classification",
       "reviewTier": "operational",
       "question": "Classify Insurance consumed.",
-      "answer": "No insurance consumed is recognized because no insurance invoice, cash movement or prepayment evidence was supplied.",
+      "answer": "Classify EUR 4,000 as insurance expense consumed during the period and keep EUR 8,000 as closing prepaid insurance asset.",
       "evidence": [
-        "03 CASE FILES - Open and Investigate/02 Bank Export August.csv",
-        "01 START HERE - Student Assignment.pdf, pp. 1-3"
+        "Teacher correction comments supplied by student on 22 Sep 2026: opening prepaid insurance EUR 12,000; insurance expense EUR 4,000; closing prepaid insurance EUR 8,000"
       ],
-      "confidence": "low"
+      "confidence": "high"
     },
     {
       "id": "D061",
@@ -1266,12 +1265,11 @@
       "category": "estimation",
       "reviewTier": "operational",
       "question": "Estimate Insurance expense and document the basis.",
-      "answer": "Insurance expense is estimated at EUR 0 because the supplied bank, invoice and operating evidence contains no insurance item.",
+      "answer": "Estimate insurance expense at EUR 4,000, based on opening prepaid insurance of EUR 12,000 and closing prepaid insurance of EUR 8,000.",
       "evidence": [
-        "03 CASE FILES - Open and Investigate/02 Bank Export August.csv",
-        "01 START HERE - Student Assignment.pdf, pp. 1-3"
+        "Teacher correction comments supplied by student on 22 Sep 2026: opening prepaid insurance EUR 12,000; insurance expense EUR 4,000; closing prepaid insurance EUR 8,000"
       ],
-      "confidence": "low"
+      "confidence": "high"
     },
     {
       "id": "D079",
@@ -1396,14 +1394,15 @@
       "category": "estimation",
       "reviewTier": "operational",
       "question": "Estimate Net profit and document the basis.",
-      "answer": "Corrected net profit is EUR 65,000.",
+      "answer": "Corrected net profit is EUR 61,000 after recognizing EUR 4,000 insurance expense.",
       "evidence": [
         "03 CASE FILES - Open and Investigate/03 CRM Export Cleaned FINAL.xlsx, CRM Export rows 4-11",
         "03 CASE FILES - Open and Investigate/05 Warehouse Count Marta Notes.pdf, pp. 1-2",
         "03 CASE FILES - Open and Investigate/07 Payroll Bonuses Contractors NEW.xlsx, Payroll rows 4-8",
         "03 CASE FILES - Open and Investigate/08 Assets Repairs Leases Maybe.xlsx, Assets rows 4-8",
         "03 CASE FILES - Open and Investigate/09 Loans Owner Card and Legal Problems.pdf, pp. 1-2",
-        "03 CASE FILES - Open and Investigate/11 Evidence Received After Takeover.pdf, p. 1"
+        "03 CASE FILES - Open and Investigate/11 Evidence Received After Takeover.pdf, p. 1",
+        "Teacher correction comments supplied by student on 22 Sep 2026: opening prepaid insurance EUR 12,000; insurance expense EUR 4,000; closing prepaid insurance EUR 8,000"
       ],
       "confidence": "medium"
     },
@@ -1428,18 +1427,19 @@
       "evidence": [
         "01 START HERE - Student Assignment.pdf, pp. 1-3 required checks",
         "03 CASE FILES - Open and Investigate/01 USE THIS NUMBERS FINAL v9.xlsx, Management P&L rows 4-11",
-        "03 CASE FILES - Open and Investigate/11 Evidence Received After Takeover.pdf, p. 1"
+        "03 CASE FILES - Open and Investigate/11 Evidence Received After Takeover.pdf, p. 1",
+        "Teacher correction comments supplied by student on 22 Sep 2026: opening prepaid insurance EUR 12,000; insurance expense EUR 4,000; closing prepaid insurance EUR 8,000"
       ],
       "confidence": "medium",
       "aiProposal": "Agent 1: Approve corrected accounts because they reconcile.",
       "independentChallenge": "Agent 2: Approve only with caveats because inventory and supplier timing differences remain unresolved.",
-      "studentReasoning": "The corrected statements reconcile to bank cash and the balance sheet, but valuation should consider disclosed control weaknesses and uncertainty.",
+      "studentReasoning": "The corrected statements reconcile to bank cash and the balance sheet after adding the insurance/prepayment chain, but valuation should consider disclosed control weaknesses and uncertainty.",
       "statementEffect": {
-        "profit": 65000.0,
+        "profit": 61000.0,
         "cash": 60000.0,
-        "assets": 576000.0,
+        "assets": 584000.0,
         "liabilities": 406000.0,
-        "equity": 170000.0
+        "equity": 178000.0
       },
       "changedFromAI": false
     },
@@ -1549,22 +1549,23 @@
       "category": "board_decision",
       "reviewTier": "material_judgment",
       "question": "Use claimed management profit for earn-out",
-      "answer": "Do not use management's claimed EUR 312,000 profit for earn-out; use corrected profit of EUR 65,000 with uncertainty disclosures.",
+      "answer": "Do not use management's claimed EUR 312,000 profit for earn-out; use corrected profit of EUR 61,000 with uncertainty disclosures.",
       "evidence": [
         "03 CASE FILES - Open and Investigate/01 USE THIS NUMBERS FINAL v9.xlsx, Management P&L rows 4-11 row 8",
         "03 CASE FILES - Open and Investigate/10 Email and WhatsApp Dump DO NOT FORWARD.pdf, pp. 1-3 p. 1",
-        "03 CASE FILES - Open and Investigate/11 Evidence Received After Takeover.pdf, p. 1"
+        "03 CASE FILES - Open and Investigate/11 Evidence Received After Takeover.pdf, p. 1",
+        "Teacher correction comments supplied by student on 22 Sep 2026: opening prepaid insurance EUR 12,000; insurance expense EUR 4,000; closing prepaid insurance EUR 8,000"
       ],
       "confidence": "high",
       "aiProposal": "Agent 1: Reject the management profit and use corrected accounts.",
       "independentChallenge": "Agent 2: Management's file is still evidence of what was claimed, but it is not reliable for earn-out measurement.",
       "studentReasoning": "The management P&L includes deposits as revenue, loan income, omitted provisions and unsupported owner costs; the earn-out must use reconciled accounts.",
       "statementEffect": {
-        "profit": -247000.0,
+        "profit": -251000.0,
         "cash": 0.0,
         "assets": 0.0,
         "liabilities": 0.0,
-        "equity": -247000.0
+        "equity": -251000.0
       },
       "changedFromAI": false
     }
@@ -1734,13 +1735,15 @@
       "repairExpense": 10000,
       "badDebtExpense": 18000,
       "damagedStockWriteOff": 22000,
+      "insuranceExpense": 4000,
       "legalProvisionExpense": 25000,
       "depreciation": 24000,
       "evidence": [
         "03 CASE FILES - Open and Investigate/02 Bank Export August.csv rows 17-21",
         "03 CASE FILES - Open and Investigate/08 Assets Repairs Leases Maybe.xlsx, Assets rows 4-8",
         "03 CASE FILES - Open and Investigate/04 Contracts Returns and Angry Customers.pdf, pp. 1-2 p. 2",
-        "03 CASE FILES - Open and Investigate/11 Evidence Received After Takeover.pdf, p. 1"
+        "03 CASE FILES - Open and Investigate/11 Evidence Received After Takeover.pdf, p. 1",
+        "Teacher correction comments supplied by student on 22 Sep 2026: opening prepaid insurance EUR 12,000; insurance expense EUR 4,000; closing prepaid insurance EUR 8,000"
       ]
     },
     "ppeAndDepreciation": {
@@ -1772,22 +1775,33 @@
         "03 CASE FILES - Open and Investigate/02 Bank Export August.csv rows 4, 24-25"
       ]
     },
+    "insuranceAndPrepayments": {
+      "openingPrepaidInsurance": 12000,
+      "insuranceExpense": 4000,
+      "closingPrepaidInsurance": 8000,
+      "cashPaidInPeriod": 0,
+      "evidence": [
+        "Teacher correction comments supplied by student on 22 Sep 2026: opening prepaid insurance EUR 12,000; insurance expense EUR 4,000; closing prepaid insurance EUR 8,000"
+      ]
+    },
     "equityAndDistributions": {
       "openingCash": 80000,
       "openingReceivables": 35000,
       "openingInventory": 80000,
+      "openingPrepaidInsurance": 12000,
       "openingPPENet": 135000,
       "openingLoan": 100000,
       "openingPayrollLiability": 15000,
-      "openingEquity": 215000,
-      "profit": 65000,
+      "openingEquity": 227000,
+      "profit": 61000,
       "ownerDistributions": 110000,
-      "closingEquity": 170000,
+      "closingEquity": 178000,
       "evidence": [
         "03 CASE FILES - Open and Investigate/02 Bank Export August.csv rows 1, 26-27",
         "03 CASE FILES - Open and Investigate/09 Loans Owner Card and Legal Problems.pdf, pp. 1-2",
         "03 CASE FILES - Open and Investigate/07 Payroll Bonuses Contractors NEW.xlsx, Payroll rows 4-8",
-        "03 CASE FILES - Open and Investigate/08 Assets Repairs Leases Maybe.xlsx, Assets rows 4-8"
+        "03 CASE FILES - Open and Investigate/08 Assets Repairs Leases Maybe.xlsx, Assets rows 4-8",
+        "Teacher correction comments supplied by student on 22 Sep 2026: opening prepaid insurance EUR 12,000; insurance expense EUR 4,000; closing prepaid insurance EUR 8,000"
       ]
     },
     "supplierPayablesAndPrepayment": {
@@ -1818,10 +1832,11 @@
       "depreciation": 24000,
       "badDebtExpense": 18000,
       "inventoryWriteOff": 22000,
+      "insuranceExpense": 4000,
       "legalProvisionExpense": 25000,
-      "operatingProfit": 77000,
+      "operatingProfit": 73000,
       "interestExpense": 12000,
-      "netProfit": 65000
+      "netProfit": 61000
     },
     "cashFlow": {
       "openingCash": 80000,
@@ -1845,6 +1860,7 @@
         "cash": 60000,
         "tradeReceivablesNet": 168000,
         "inventory": 112000,
+        "prepaidInsurance": 8000,
         "supplierPrepaymentOrTimingDifference": 45000,
         "ppeNet": 191000
       },
@@ -1857,18 +1873,18 @@
         "legalProvision": 25000
       },
       "equity": {
-        "closingEquity": 170000
+        "closingEquity": 178000
       },
-      "totalAssets": 576000,
+      "totalAssets": 584000,
       "totalLiabilities": 406000,
-      "totalLiabilitiesAndEquity": 576000
+      "totalLiabilitiesAndEquity": 584000
     }
   },
   "reconciliations": [
     {
       "name": "Balance sheet balances",
       "status": "pass",
-      "calculation": "Assets EUR 576,000 = liabilities EUR 406,000 + equity EUR 170,000.",
+      "calculation": "Assets EUR 584,000 = liabilities EUR 406,000 + equity EUR 178,000.",
       "evidence": [
         "03 CASE FILES - Open and Investigate/02 Bank Export August.csv",
         "03 CASE FILES - Open and Investigate/11 Evidence Received After Takeover.pdf, p. 1"
@@ -1922,14 +1938,23 @@
       ]
     },
     {
+      "name": "Insurance and prepayment",
+      "status": "pass",
+      "calculation": "Opening prepaid insurance EUR 12,000 - insurance expense EUR 4,000 = closing prepaid insurance EUR 8,000.",
+      "evidence": [
+        "Teacher correction comments supplied by student on 22 Sep 2026: opening prepaid insurance EUR 12,000; insurance expense EUR 4,000; closing prepaid insurance EUR 8,000"
+      ]
+    },
+    {
       "name": "Equity roll-forward",
       "status": "pass",
-      "calculation": "Opening equity EUR 215,000 + profit EUR 65,000 - distributions EUR 110,000 = closing equity EUR 170,000.",
+      "calculation": "Opening equity EUR 227,000 + profit EUR 61,000 - distributions EUR 110,000 = closing equity EUR 178,000.",
       "evidence": [
         "03 CASE FILES - Open and Investigate/02 Bank Export August.csv",
         "03 CASE FILES - Open and Investigate/09 Loans Owner Card and Legal Problems.pdf, pp. 1-2",
         "03 CASE FILES - Open and Investigate/08 Assets Repairs Leases Maybe.xlsx, Assets rows 4-8",
-        "03 CASE FILES - Open and Investigate/07 Payroll Bonuses Contractors NEW.xlsx, Payroll rows 4-8"
+        "03 CASE FILES - Open and Investigate/07 Payroll Bonuses Contractors NEW.xlsx, Payroll rows 4-8",
+        "Teacher correction comments supplied by student on 22 Sep 2026: opening prepaid insurance EUR 12,000; insurance expense EUR 4,000; closing prepaid insurance EUR 8,000"
       ]
     },
     {
@@ -1985,25 +2010,15 @@
         "03 CASE FILES - Open and Investigate/11 Evidence Received After Takeover.pdf, p. 1"
       ],
       "statementImpact": "Profit, liabilities and equity could move by EUR 5,000 from the recorded best estimate."
-    },
-    {
-      "area": "Insurance",
-      "amount": 0,
-      "confidence": "low",
-      "description": "The answer template asks for insurance, but no insurance invoice or cash movement is present in the supplied evidence.",
-      "evidence": [
-        "03 CASE FILES - Open and Investigate/02 Bank Export August.csv",
-        "01 START HERE - Student Assignment.pdf, pp. 1-3"
-      ],
-      "statementImpact": "No amount recorded; any later evidence would change expense or prepayment."
     }
   ],
   "boardRecommendation": {
-    "summary": "Do not rely on management's EUR 312,000 profit claim. Use corrected accounts showing EUR 65,000 profit, EUR 60,000 cash and material control weaknesses.",
+    "summary": "Do not rely on management's EUR 312,000 profit claim. Use corrected accounts showing EUR 61,000 profit, EUR 60,000 cash and material control weaknesses.",
     "decision": "Approve corrected accounts for valuation with disclosed supplier and inventory uncertainties; reject management profit for earn-out purposes.",
-    "correctedProfit": 65000,
+    "correctedProfit": 61000,
     "closingCash": 60000,
     "continueCoreBusiness": true,
+    "certification": "I personally certify these corrected conclusions after reconciling cash, receivables, inventory, insurance/prepayment, PPE, debt, equity and the 100 decision log.",
     "immediateActions": [
       "Freeze owner-card access and require approval for any owner-related payments.",
       "Move September customer deposits to contract liabilities and stop cash-equals-revenue reporting.",
@@ -2041,6 +2056,6 @@
       "D091",
       "D100"
     ],
-    "certification": "Final student answer reconciles to bank cash and balances after recording disclosed supplier and inventory uncertainties."
+    "certification": "Final student answer personally certified after reconciling bank cash, insurance/prepayment, inventory, PPE, debt, equity and disclosed supplier/inventory uncertainties."
   }
 }

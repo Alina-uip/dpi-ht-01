@@ -60,6 +60,37 @@ function evidenceList(evidence) {
     .join("")}</ul>`;
 }
 
+function materialPlainExplanation(d) {
+  const explanations = {
+    D041: "Deposits for September events are cash received before delivery. Cash goes up, but August revenue does not.",
+    D042: "The bank advance is borrowing. A loan creates debt; it is not income and should not increase profit.",
+    D043: "The packaging machine is a long-term asset because it was installed and used after purchase.",
+    D044: "The photo booth is equipment. Even if it helps marketing, it is still a physical asset used over time.",
+    D045: "The belt and calibration only restored normal operation. That is a repair expense, not a new asset.",
+    D046: "The villa was personal owner spending. It should reduce equity as a distribution, not reduce profit.",
+    D047: "The owner card spending had no business evidence. Treat it as an owner distribution.",
+    D048: "Materials used to make delivered products belong in cost of goods sold.",
+    D049: "Event staff worked directly on events, so their payroll is direct cost of service delivery.",
+    D056: "Depreciation records the use of equipment during the period. It lowers profit but not cash.",
+    D057: "The R-17 customer was insolvent at the reporting date, so that receivable should be written off.",
+    D058: "Damaged stock has no saleable value. Write off the stock; disclose the future disposal quote separately.",
+    D059: "The legal claim was probable and had a best estimate, so it should be recognized as a provision.",
+    D064: "NorthStar accepted the goods and paid in full, so revenue is recognized.",
+    D065: "Freedom accepted delivery. The unpaid part stays as a receivable.",
+    D066: "Phoenix completed the event. Cash was partial, so the remainder is a receivable.",
+    D067: "Liberty accepted the delivered order. The unpaid amount stays receivable.",
+    D068: "September events were not delivered by 31 August, so deposits are liabilities, not revenue.",
+    D071: "Use the specific bad-debt evidence: EUR 18,000 has no expected recovery.",
+    D072: "Only the damaged stock carrying value is recognized now. The EUR 2,000 disposal quote is uncertainty only.",
+    D073: "Use the lawyer's best estimate of EUR 25,000 because the claim was probable.",
+    D074: "Use the independent depreciation estimate because management booked none.",
+    D075: "Closing inventory follows the roll-forward, but the physical count variance is disclosed.",
+    D091: "Use corrected accounts for valuation, but keep the uncertainty warnings visible.",
+    D100: "Do not use management's profit claim because it includes unsupported and wrongly classified items."
+  };
+  return explanations[d.id] || d.studentReasoning || d.answer;
+}
+
 function metrics(data) {
   const pnl = data.statements.profitAndLoss;
   const cf = data.statements.cashFlow;
@@ -110,6 +141,7 @@ function schedules(data) {
       <div><h3>Payroll</h3>${table([{ label: "Line" }, { label: "EUR", num: true }], kvRows(s.payroll))}</div>
       <div><h3>PPE and Depreciation</h3>${table([{ label: "Line" }, { label: "EUR", num: true }], kvRows(s.ppeAndDepreciation))}</div>
       <div><h3>Debt and Interest</h3>${table([{ label: "Line" }, { label: "EUR", num: true }], kvRows(s.debtAndInterest))}</div>
+      <div><h3>Insurance and Prepayments</h3>${table([{ label: "Line" }, { label: "EUR", num: true }], kvRows(s.insuranceAndPrepayments))}</div>
       <div><h3>Equity and Distributions</h3>${table([{ label: "Line" }, { label: "EUR", num: true }], kvRows(s.equityAndDistributions))}</div>
     </div>
   </section>`;
@@ -132,6 +164,7 @@ function board(data) {
   return `<section class="panel"><h2>Board Recommendation</h2>
     <p class="callout">${esc(b.summary)}</p>
     <p><strong>Decision:</strong> ${esc(b.decision)}</p>
+    ${b.certification ? `<p><strong>Certification:</strong> ${esc(b.certification)}</p>` : ""}
     <ul>${b.immediateActions.map((a) => `<li>${esc(a)}</li>`).join("")}</ul>
   </section>`;
 }
@@ -171,6 +204,71 @@ function decisions(data) {
     </div>
     <div id="decisionList" class="decision-list">${data.decisions.map((d) => decisionCard(d)).join("")}</div>
   </section>`;
+}
+
+function effectSummary(effect) {
+  return table([
+    { label: "Profit", num: true },
+    { label: "Cash", num: true },
+    { label: "Assets", num: true },
+    { label: "Liabilities", num: true },
+    { label: "Equity", num: true }
+  ], [[
+    money(effect.profit),
+    money(effect.cash),
+    money(effect.assets),
+    money(effect.liabilities),
+    money(effect.equity)
+  ]]);
+}
+
+function judgmentStudyCard(d, index) {
+  return `<article class="judgment-card">
+    <div class="judgment-number">${index + 1}</div>
+    <div class="judgment-body">
+      <div class="decision-head">
+        <h3>${esc(d.id)} ${esc(d.question)}</h3>
+        <div>${status(d.confidence)} ${d.changedFromAI ? status("changed") : status("certified")}</div>
+      </div>
+      <p><strong>Final answer:</strong> ${esc(d.answer)}</p>
+      <p><strong>Simple explanation:</strong> ${esc(materialPlainExplanation(d))}</p>
+      <p><strong>What to say if asked:</strong> ${esc(d.studentReasoning)}</p>
+      <div class="judgment-grid">
+        <div>
+          <h4>Agent 1 proposal</h4>
+          <p>${esc(d.aiProposal)}</p>
+        </div>
+        <div>
+          <h4>Agent 2 challenge</h4>
+          <p>${esc(d.independentChallenge)}</p>
+        </div>
+      </div>
+      <h4>Statement effect</h4>
+      ${effectSummary(d.statementEffect)}
+      <details>
+        <summary>Evidence</summary>
+        ${evidenceList(d.evidence)}
+      </details>
+    </div>
+  </article>`;
+}
+
+function judgments(data) {
+  const material = data.decisions.filter((d) => d.reviewTier === "material_judgment");
+  return `${metrics(data)}
+    <section class="panel study-intro">
+      <h2>25 Material Management-Accounting Judgments</h2>
+      <p class="callout">This page is for oral preparation. It shows the 25 important accounting judgments in simple language, with the final answer, the reason, evidence and statement effect.</p>
+      <div class="review-flags">
+        <div class="flag"><span>Required judgments</span><strong>25</strong><small>From the assignment template</small></div>
+        <div class="flag"><span>Included here</span><strong>${plain.format(material.length)}</strong><small>${material.length === 25 ? "Complete" : "Check missing items"}</small></div>
+        <div class="flag"><span>Changed from Agent 1</span><strong>${plain.format(material.filter((d) => d.changedFromAI).length)}</strong><small>${material.filter((d) => d.changedFromAI).map((d) => d.id).join(", ") || "None"}</small></div>
+        <div class="flag"><span>Low confidence</span><strong>${plain.format(material.filter((d) => d.confidence === "low").length)}</strong><small>${material.filter((d) => d.confidence === "low").map((d) => d.id).join(", ") || "None"}</small></div>
+      </div>
+    </section>
+    <section class="judgment-list">
+      ${material.map((d, index) => judgmentStudyCard(d, index)).join("")}
+    </section>`;
 }
 
 function review(data) {
@@ -237,7 +335,13 @@ async function boot() {
     const response = await fetch("/submission.json", { cache: "no-store" });
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     const data = await response.json();
-    app.innerHTML = document.body.dataset.page === "review" ? review(data) : main(data);
+    if (document.body.dataset.page === "review") {
+      app.innerHTML = review(data);
+    } else if (document.body.dataset.page === "judgments") {
+      app.innerHTML = judgments(data);
+    } else {
+      app.innerHTML = main(data);
+    }
     bindFilters();
   } catch (error) {
     app.innerHTML = `<section class="panel"><h2>Could not load submission data</h2><p>${esc(error.message)}</p></section>`;

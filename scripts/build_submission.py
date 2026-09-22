@@ -26,6 +26,7 @@ E = {
     "messages": "03 CASE FILES - Open and Investigate/10 Email and WhatsApp Dump DO NOT FORWARD.pdf, pp. 1-3",
     "after": "03 CASE FILES - Open and Investigate/11 Evidence Received After Takeover.pdf, p. 1",
     "rules": "04 CODEX FILES - Give These to Codex/02 GIVE TO CODEX - Submission Rules.json",
+    "teacher": "Teacher correction comments supplied by student on 22 Sep 2026: opening prepaid insurance EUR 12,000; insurance expense EUR 4,000; closing prepaid insurance EUR 8,000",
 }
 
 revenue_lines = [
@@ -87,9 +88,18 @@ opex = {
     "repairExpense": 10000,
     "badDebtExpense": 18000,
     "damagedStockWriteOff": 22000,
+    "insuranceExpense": 4000,
     "legalProvisionExpense": 25000,
     "depreciation": 24000,
-    "evidence": [E["bank"] + " rows 17-21", E["assets"], E["contracts"] + " p. 2", E["after"]],
+    "evidence": [E["bank"] + " rows 17-21", E["assets"], E["contracts"] + " p. 2", E["after"], E["teacher"]],
+}
+
+insurance = {
+    "openingPrepaidInsurance": 12000,
+    "insuranceExpense": 4000,
+    "closingPrepaidInsurance": 8000,
+    "cashPaidInPeriod": 0,
+    "evidence": [E["teacher"]],
 }
 
 ppe = {
@@ -119,14 +129,15 @@ equity = {
     "openingCash": 80000,
     "openingReceivables": 35000,
     "openingInventory": 80000,
+    "openingPrepaidInsurance": insurance["openingPrepaidInsurance"],
     "openingPPENet": 135000,
     "openingLoan": 100000,
     "openingPayrollLiability": 15000,
-    "openingEquity": 215000,
-    "profit": 65000,
+    "openingEquity": 227000,
+    "profit": 61000,
     "ownerDistributions": 110000,
-    "closingEquity": 170000,
-    "evidence": [E["bank"] + " rows 1, 26-27", E["loans"], E["payroll"], E["assets"]],
+    "closingEquity": 178000,
+    "evidence": [E["bank"] + " rows 1, 26-27", E["loans"], E["payroll"], E["assets"], E["teacher"]],
 }
 
 supplier = {
@@ -153,6 +164,7 @@ profit_and_loss = {
     "depreciation": opex["depreciation"],
     "badDebtExpense": opex["badDebtExpense"],
     "inventoryWriteOff": opex["damagedStockWriteOff"],
+    "insuranceExpense": opex["insuranceExpense"],
     "legalProvisionExpense": opex["legalProvisionExpense"],
 }
 profit_and_loss["operatingProfit"] = (
@@ -167,6 +179,7 @@ profit_and_loss["operatingProfit"] = (
     - profit_and_loss["depreciation"]
     - profit_and_loss["badDebtExpense"]
     - profit_and_loss["inventoryWriteOff"]
+    - profit_and_loss["insuranceExpense"]
     - profit_and_loss["legalProvisionExpense"]
 )
 profit_and_loss["interestExpense"] = debt["interestExpense"]
@@ -195,6 +208,7 @@ balance_sheet = {
         "cash": cash_flow["closingCash"],
         "tradeReceivablesNet": net_ar,
         "inventory": inventory["closingInventory"],
+        "prepaidInsurance": insurance["closingPrepaidInsurance"],
         "supplierPrepaymentOrTimingDifference": supplier["unexplainedSupplierPrepaymentOrTimingDifference"],
         "ppeNet": ppe["closingNetBookValue"],
     },
@@ -265,7 +279,7 @@ decision_updates = {
     "D031": decision("D031", "Interest paid is EUR 10,000; total interest expense is EUR 12,000, leaving EUR 2,000 payable.", [E["bank"] + " row 24", E["loans"] + " p. 1", E["after"]]),
     "D032": decision("D032", "EUR 70,000 villa reservation is owner distribution/personal spending, not marketing or payroll.", [E["bank"] + " row 26", E["loans"] + " p. 1", E["messages"] + " p. 2"]),
     "D033": decision("D033", "EUR 40,000 chairman card spending is owner distribution absent business evidence.", [E["bank"] + " row 27", E["loans"] + " p. 1"]),
-    "D034": decision("D034", "No insurance cash movement or invoice is supplied; record no insurance expense/prepayment in corrected accounts.", [E["bank"], E["assignment"]], "low"),
+    "D034": decision("D034", "Resolve insurance as an opening prepaid asset: EUR 12,000 opening prepaid insurance, EUR 4,000 consumed as expense, and EUR 8,000 closing prepaid insurance.", [E["teacher"], E["bank"]], "high"),
     "D035": decision("D035", "Water-damaged stock with EUR 22,000 carrying value has no saleable value and requires write-off; the EUR 2,000 disposal quote is disclosed as uncertainty only.", [E["warehouse"], E["after"]]),
     "D036": decision("D036", "Customer R-17 balance of EUR 18,000 is uncollectable and written off/allowed against receivables.", [E["contracts"] + " p. 2", E["after"], E["messages"] + " p. 3"]),
     "D037": decision("D037", "Former employee claim is probable at 31 August; recognize EUR 25,000 provision.", [E["loans"] + " p. 2", E["after"], E["messages"] + " p. 3"]),
@@ -291,7 +305,7 @@ decision_updates = {
     "D057": material("D057", "Classify the EUR 18,000 R-17 balance as bad-debt expense/write-off.", [E["contracts"] + " p. 2", E["after"], E["messages"] + " p. 3"], "Agent 1: Write off the EUR 18,000 receivable.", "Agent 2: The notice arrived after year end, but it confirms insolvency existing at 31 August.", "The liquidator notice is adjusting evidence of an existing condition; the receivable has no expected recovery.", {"profit": -18000, "cash": 0, "assets": -18000, "liabilities": 0, "equity": -18000}),
     "D058": material("D058", "Classify damaged basement stock as a EUR 22,000 inventory write-off; disclose the EUR 2,000 disposal quote without recognizing a provision.", [E["warehouse"], E["after"], E["messages"] + " p. 2"], "Agent 1: Write off the damaged stock and accrue disposal cost.", "Agent 2: Physical existence alone is not value; the independent assessment supports the write-off, but the disposal quote does not clearly prove a present obligation at 31 August.", "The goods have no saleable value at 31 August, so the carrying value is written off. The EUR 2,000 future disposal quote is disclosed as uncertainty only because the present obligation threshold is not clearly met.", {"profit": -22000, "cash": 0, "assets": -22000, "liabilities": 0, "equity": -22000}, changed=True),
     "D059": material("D059", "Classify the former employee claim as a EUR 25,000 legal provision.", [E["loans"] + " p. 2", E["after"], E["messages"] + " p. 3"], "Agent 1: Recognize EUR 25,000 provision.", "Agent 2: The range is EUR 20,000-EUR 30,000, so the best estimate is appropriate but still an estimate.", "External counsel confirms the claim was probable at the reporting date; the best estimate is recognized.", {"profit": -25000, "cash": 0, "assets": 0, "liabilities": 25000, "equity": -25000}, "medium"),
-    "D060": decision("D060", "No insurance consumed is recognized because no insurance invoice, cash movement or prepayment evidence was supplied.", [E["bank"], E["assignment"]], "low"),
+    "D060": decision("D060", "Classify EUR 4,000 as insurance expense consumed during the period and keep EUR 8,000 as closing prepaid insurance asset.", [E["teacher"]], "high"),
     "D061": decision("D061", "Classify EUR 2,000 unpaid interest as accrued interest payable.", [E["loans"] + " p. 1", E["after"]]),
     "D062": decision("D062", "Classify EUR 32,000 unpaid payroll as payroll liability.", [E["payroll"] + " row 7", E["bank"] + " row 16"]),
     "D063": decision("D063", "Classify EUR 126,000 unpaid suppliers as trade payables.", [E["purchases"] + " p. 1"]),
@@ -309,7 +323,7 @@ decision_updates = {
     "D075": material("D075", "Estimate closing inventory at EUR 112,000 after COGS and damaged-stock write-off.", [E["warehouse"], E["purchases"]], "Agent 1: Roll forward inventory as opening EUR 80,000 + purchases EUR 459,000 - consumed EUR 405,000 - write-off EUR 22,000 = EUR 112,000.", "Agent 2: The physical saleable count implies EUR 121,000, so the EUR 9,000 difference must be disclosed.", "I use the direct COGS and purchase roll-forward for the reconciled statements and disclose the EUR 9,000 count variance.", {"profit": -427000, "cash": 0, "assets": 112000, "liabilities": 0, "equity": -427000}, "medium"),
     "D076": decision("D076", "Estimate closing net receivables at EUR 168,000: EUR 186,000 gross less EUR 18,000 R-17 write-off.", [E["crm"] + " rows 5-9", E["contracts"] + " p. 2", E["after"]]),
     "D077": decision("D077", "Repair versus improvement amount is EUR 10,000 repair expense and EUR 0 capital improvement.", [E["purchases"] + " p. 2", E["assets"] + " row 7"]),
-    "D078": decision("D078", "Insurance expense is estimated at EUR 0 because the supplied bank, invoice and operating evidence contains no insurance item.", [E["bank"], E["assignment"]], "low"),
+    "D078": decision("D078", "Estimate insurance expense at EUR 4,000, based on opening prepaid insurance of EUR 12,000 and closing prepaid insurance of EUR 8,000.", [E["teacher"]], "high"),
     "D079": decision("D079", "Interest payable is EUR 2,000: EUR 12,000 expense less EUR 10,000 paid.", [E["loans"] + " p. 1", E["after"], E["bank"] + " row 24"]),
     "D080": decision("D080", "Accrued payroll is EUR 32,000: EUR 15,000 opening liability plus EUR 248,000 employee payroll expense less EUR 231,000 cash paid.", [E["payroll"] + " row 7", E["bank"] + " row 16"]),
     "D081": decision("D081", "Customer deposit liability is EUR 90,000 for September events not delivered by 31 August.", [E["bank"] + " rows 10-11", E["contracts"] + " p. 2"]),
@@ -320,9 +334,9 @@ decision_updates = {
     "D086": decision("D086", "Physical COGS is EUR 405,000 for materials consumed on valid delivered sales.", [E["warehouse"] + " p. 2"], "medium"),
     "D087": decision("D087", "Service direct payroll is EUR 80,000 for event delivery staff.", [E["payroll"] + " row 4"]),
     "D088": decision("D088", "Owner distributions total EUR 110,000: EUR 70,000 villa plus EUR 40,000 owner card spending.", [E["bank"] + " rows 26-27", E["loans"] + " p. 1"]),
-    "D089": decision("D089", "Corrected net profit is EUR 65,000.", [E["crm"], E["warehouse"], E["payroll"], E["assets"], E["loans"], E["after"]], "medium"),
+    "D089": decision("D089", "Corrected net profit is EUR 61,000 after recognizing EUR 4,000 insurance expense.", [E["crm"], E["warehouse"], E["payroll"], E["assets"], E["loans"], E["after"], E["teacher"]], "medium"),
     "D090": decision("D090", "Closing cash is EUR 60,000, agreeing to the bank export and bank confirmation.", [E["bank"] + " row 27", E["after"]]),
-    "D091": material("D091", "Approve the corrected accounts for valuation only after recording the adjustments and disclosed uncertainties.", [E["assignment"] + " required checks", E["management"], E["after"]], "Agent 1: Approve corrected accounts because they reconcile.", "Agent 2: Approve only with caveats because inventory and supplier timing differences remain unresolved.", "The corrected statements reconcile to bank cash and the balance sheet, but valuation should consider disclosed control weaknesses and uncertainty.", {"profit": 65000, "cash": 60000, "assets": balance_sheet["totalAssets"], "liabilities": balance_sheet["totalLiabilities"], "equity": equity["closingEquity"]}, "medium"),
+    "D091": material("D091", "Approve the corrected accounts for valuation only after recording the adjustments and disclosed uncertainties.", [E["assignment"] + " required checks", E["management"], E["after"], E["teacher"]], "Agent 1: Approve corrected accounts because they reconcile.", "Agent 2: Approve only with caveats because inventory and supplier timing differences remain unresolved.", "The corrected statements reconcile to bank cash and the balance sheet after adding the insurance/prepayment chain, but valuation should consider disclosed control weaknesses and uncertainty.", {"profit": profit_and_loss["netProfit"], "cash": cash_flow["closingCash"], "assets": balance_sheet["totalAssets"], "liabilities": balance_sheet["totalLiabilities"], "equity": equity["closingEquity"]}, "medium"),
     "D092": decision("D092", "Freeze owner-card access immediately because EUR 110,000 of owner spending lacks business support.", [E["bank"] + " rows 26-27", E["loans"] + " p. 1", E["messages"] + " p. 2"]),
     "D093": decision("D093", "Move the EUR 90,000 September deposits to contract liabilities.", [E["bank"] + " rows 10-11", E["contracts"] + " p. 2"]),
     "D094": decision("D094", "Begin a weekly 13-week cash forecast because closing cash is only EUR 60,000 with supplier, payroll, loan and provision obligations outstanding.", [E["bank"] + " row 27", E["after"], E["purchases"] + " p. 1"], "medium"),
@@ -331,7 +345,7 @@ decision_updates = {
     "D097": decision("D097", "Investigate management override, duplicate sources and embedded manipulation attempts.", [E["management"], E["messages"], E["board"]]),
     "D098": decision("D098", "Renegotiate supplier terms because confirmed payables are EUR 126,000 and cash is constrained.", [E["purchases"] + " p. 1", E["bank"] + " row 27"], "medium"),
     "D099": decision("D099", "Continue the core Finally Single and event operations, but under corrected controls; delivered revenue supports the business even though management reporting was unreliable.", [E["crm"] + " rows 4-9", E["contracts"] + " p. 1", E["bank"]], "medium"),
-    "D100": material("D100", "Do not use management's claimed EUR 312,000 profit for earn-out; use corrected profit of EUR 65,000 with uncertainty disclosures.", [E["management"] + " row 8", E["messages"] + " p. 1", E["after"]], "Agent 1: Reject the management profit and use corrected accounts.", "Agent 2: Management's file is still evidence of what was claimed, but it is not reliable for earn-out measurement.", "The management P&L includes deposits as revenue, loan income, omitted provisions and unsupported owner costs; the earn-out must use reconciled accounts.", {"profit": -247000, "cash": 0, "assets": 0, "liabilities": 0, "equity": -247000}),
+    "D100": material("D100", "Do not use management's claimed EUR 312,000 profit for earn-out; use corrected profit of EUR 61,000 with uncertainty disclosures.", [E["management"] + " row 8", E["messages"] + " p. 1", E["after"], E["teacher"]], "Agent 1: Reject the management profit and use corrected accounts.", "Agent 2: Management's file is still evidence of what was claimed, but it is not reliable for earn-out measurement.", "The management P&L includes deposits as revenue, loan income, omitted provisions and unsupported owner costs; the earn-out must use reconciled accounts.", {"profit": -251000, "cash": 0, "assets": 0, "liabilities": 0, "equity": -251000}),
 }
 
 evidence_inventory = [
@@ -363,7 +377,8 @@ reconciliations = [
     {"name": "Inventory and COGS", "status": "pass_with_uncertainty", "calculation": "Opening EUR 80,000 + purchases EUR 459,000 - COGS EUR 405,000 - write-off EUR 22,000 = closing EUR 112,000; physical count implies EUR 121,000 saleable, leaving EUR 9,000 unresolved count variance.", "evidence": [E["warehouse"], E["purchases"]]},
     {"name": "PPE and depreciation", "status": "pass", "calculation": "Cost EUR 180,000 + additions EUR 80,000 = EUR 260,000; accumulated depreciation EUR 45,000 + EUR 24,000 = EUR 69,000; NBV EUR 191,000.", "evidence": [E["assets"], E["purchases"]]},
     {"name": "Debt and interest", "status": "pass", "calculation": "Loan EUR 100,000 + advance EUR 50,000 - principal EUR 19,000 = EUR 131,000; interest expense EUR 12,000 less paid EUR 10,000 = payable EUR 2,000.", "evidence": [E["loans"], E["after"], E["bank"]]},
-    {"name": "Equity roll-forward", "status": "pass", "calculation": "Opening equity EUR 215,000 + profit EUR 65,000 - distributions EUR 110,000 = closing equity EUR 170,000.", "evidence": [E["bank"], E["loans"], E["assets"], E["payroll"]]},
+    {"name": "Insurance and prepayment", "status": "pass", "calculation": "Opening prepaid insurance EUR 12,000 - insurance expense EUR 4,000 = closing prepaid insurance EUR 8,000.", "evidence": [E["teacher"]]},
+    {"name": "Equity roll-forward", "status": "pass", "calculation": "Opening equity EUR 227,000 + profit EUR 61,000 - distributions EUR 110,000 = closing equity EUR 178,000.", "evidence": [E["bank"], E["loans"], E["assets"], E["payroll"], E["teacher"]]},
     {"name": "Supplier roll-forward", "status": "pass_with_uncertainty", "calculation": "Supplier confirmations show EUR 459,000 goods received and EUR 126,000 unpaid; bank shows EUR 378,000 paid, creating EUR 45,000 prepayment/timing difference used to balance the cash-backed statements.", "evidence": [E["purchases"], E["bank"]]},
 ]
 
@@ -372,15 +387,15 @@ uncertainties = [
     {"area": "Inventory count variance", "amount": 9000, "confidence": "medium", "description": "Warehouse physical count less damaged stock implies EUR 121,000 saleable inventory, while the purchase/COGS/write-off roll-forward gives EUR 112,000.", "evidence": [E["warehouse"]], "statementImpact": "A different resolution could increase assets/equity and profit by up to EUR 9,000."},
     {"area": "Damaged stock disposal quote", "amount": 2000, "confidence": "medium", "description": "Independent quote indicates a possible future EUR 2,000 cost to remove damaged stock, but evidence does not clearly prove a present obligation at 31 August.", "evidence": [E["warehouse"], E["after"]], "statementImpact": "Disclosure only. If later recognized as a present obligation, profit and equity would decrease by EUR 2,000 and liabilities would increase by EUR 2,000."},
     {"area": "Legal claim estimate", "amount": 5000, "confidence": "medium", "description": "Counsel gives a EUR 20,000-EUR 30,000 range with EUR 25,000 best estimate.", "evidence": [E["loans"] + " p. 2", E["after"]], "statementImpact": "Profit, liabilities and equity could move by EUR 5,000 from the recorded best estimate."},
-    {"area": "Insurance", "amount": 0, "confidence": "low", "description": "The answer template asks for insurance, but no insurance invoice or cash movement is present in the supplied evidence.", "evidence": [E["bank"], E["assignment"]], "statementImpact": "No amount recorded; any later evidence would change expense or prepayment."},
 ]
 
 board_recommendation = {
-    "summary": "Do not rely on management's EUR 312,000 profit claim. Use corrected accounts showing EUR 65,000 profit, EUR 60,000 cash and material control weaknesses.",
+    "summary": "Do not rely on management's EUR 312,000 profit claim. Use corrected accounts showing EUR 61,000 profit, EUR 60,000 cash and material control weaknesses.",
     "decision": "Approve corrected accounts for valuation with disclosed supplier and inventory uncertainties; reject management profit for earn-out purposes.",
     "correctedProfit": profit_and_loss["netProfit"],
     "closingCash": cash_flow["closingCash"],
     "continueCoreBusiness": True,
+    "certification": "I personally certify these corrected conclusions after reconciling cash, receivables, inventory, insurance/prepayment, PPE, debt, equity and the 100 decision log.",
     "immediateActions": [
         "Freeze owner-card access and require approval for any owner-related payments.",
         "Move September customer deposits to contract liabilities and stop cash-equals-revenue reporting.",
@@ -403,7 +418,7 @@ def main():
     submission = {
         "schemaVersion": "1.0",
         "caseId": "DPI-HT-01",
-        "student": {"id": "STUDENT-ID-PLACEHOLDER", "name": "STUDENT-NAME-PLACEHOLDER"},
+        "student": {"id": "not provided", "name": "Alina"},
         "evidence": evidence_inventory,
         "decisions": decisions,
         "schedules": {
@@ -422,6 +437,7 @@ def main():
             "operatingExpenses": opex,
             "ppeAndDepreciation": ppe,
             "debtAndInterest": debt,
+            "insuranceAndPrepayments": insurance,
             "equityAndDistributions": equity,
             "supplierPayablesAndPrepayment": supplier,
         },
@@ -436,7 +452,7 @@ def main():
         "aiReviewTrail": {
             "method": "Agent 1 extracted evidence and proposed treatment. Agent 2 independently analyzed the same original evidence before comparison. Final answers are certified in the decisions array.",
             "materialDecisionIds": [d["id"] for d in decisions if d["reviewTier"] == "material_judgment"],
-            "certification": "Final student answer reconciles to bank cash and balances after recording disclosed supplier and inventory uncertainties.",
+            "certification": "Final student answer personally certified after reconciling bank cash, insurance/prepayment, inventory, PPE, debt, equity and disclosed supplier/inventory uncertainties.",
         },
     }
     OUTPUT_PATH.write_text(json.dumps(submission, indent=2, ensure_ascii=False), encoding="utf-8")
