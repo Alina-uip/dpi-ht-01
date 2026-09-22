@@ -227,7 +227,7 @@
       "category": "evidence_matching",
       "reviewTier": "operational",
       "question": "Resolve the source and treatment of Event supplier payment.",
-      "answer": "Event supplier bank payment is EUR 100,000, but supplier confirmation supports EUR 59,000 still payable; the excess paid creates a EUR 45,000 prepayment/timing uncertainty.",
+      "answer": "Event supplier bank payment is EUR 100,000, but supplier confirmation supports EUR 59,000 still payable; the EUR 45,000 difference is disclosed as an unresolved supplier timing uncertainty, not recognized as an asset.",
       "evidence": [
         "03 CASE FILES - Open and Investigate/02 Bank Export August.csv row 15",
         "03 CASE FILES - Open and Investigate/06 Purchases Invoices and Goods Received.pdf, pp. 1-2 p. 1"
@@ -1437,9 +1437,9 @@
       "statementEffect": {
         "profit": 61000.0,
         "cash": 60000.0,
-        "assets": 584000.0,
+        "assets": 539000.0,
         "liabilities": 406000.0,
-        "equity": 178000.0
+        "equity": 133000.0
       },
       "changedFromAI": false
     },
@@ -1792,10 +1792,10 @@
       "openingPPENet": 135000,
       "openingLoan": 100000,
       "openingPayrollLiability": 15000,
-      "openingEquity": 227000,
+      "openingEquity": 182000,
       "profit": 61000,
       "ownerDistributions": 110000,
-      "closingEquity": 178000,
+      "closingEquity": 133000,
       "evidence": [
         "03 CASE FILES - Open and Investigate/02 Bank Export August.csv rows 1, 26-27",
         "03 CASE FILES - Open and Investigate/09 Loans Owner Card and Legal Problems.pdf, pp. 1-2",
@@ -1809,6 +1809,7 @@
       "supplierCashPaidPerBank": 378000,
       "confirmedSupplierPayables": 126000,
       "impliedPaidFromSupplierConfirmations": 333000,
+      "recognizedPrepayment": 0,
       "unexplainedSupplierPrepaymentOrTimingDifference": 45000,
       "evidence": [
         "03 CASE FILES - Open and Investigate/06 Purchases Invoices and Goods Received.pdf, pp. 1-2 p. 1",
@@ -1861,7 +1862,6 @@
         "tradeReceivablesNet": 168000,
         "inventory": 112000,
         "prepaidInsurance": 8000,
-        "supplierPrepaymentOrTimingDifference": 45000,
         "ppeNet": 191000
       },
       "liabilities": {
@@ -1873,18 +1873,18 @@
         "legalProvision": 25000
       },
       "equity": {
-        "closingEquity": 178000
+        "closingEquity": 133000
       },
-      "totalAssets": 584000,
+      "totalAssets": 539000,
       "totalLiabilities": 406000,
-      "totalLiabilitiesAndEquity": 584000
+      "totalLiabilitiesAndEquity": 539000
     }
   },
   "reconciliations": [
     {
       "name": "Balance sheet balances",
       "status": "pass",
-      "calculation": "Assets EUR 584,000 = liabilities EUR 406,000 + equity EUR 178,000.",
+      "calculation": "Assets EUR 539,000 = liabilities EUR 406,000 + equity EUR 133,000.",
       "evidence": [
         "03 CASE FILES - Open and Investigate/02 Bank Export August.csv",
         "03 CASE FILES - Open and Investigate/11 Evidence Received After Takeover.pdf, p. 1"
@@ -1948,7 +1948,7 @@
     {
       "name": "Equity roll-forward",
       "status": "pass",
-      "calculation": "Opening equity EUR 227,000 + profit EUR 61,000 - distributions EUR 110,000 = closing equity EUR 178,000.",
+      "calculation": "Opening equity EUR 182,000 + profit EUR 61,000 - distributions EUR 110,000 = closing equity EUR 133,000.",
       "evidence": [
         "03 CASE FILES - Open and Investigate/02 Bank Export August.csv",
         "03 CASE FILES - Open and Investigate/09 Loans Owner Card and Legal Problems.pdf, pp. 1-2",
@@ -1960,7 +1960,7 @@
     {
       "name": "Supplier roll-forward",
       "status": "pass_with_uncertainty",
-      "calculation": "Supplier confirmations show EUR 459,000 goods received and EUR 126,000 unpaid; bank shows EUR 378,000 paid, creating EUR 45,000 prepayment/timing difference used to balance the cash-backed statements.",
+      "calculation": "Supplier confirmations show EUR 459,000 goods received and EUR 126,000 unpaid; bank shows EUR 378,000 paid, creating a EUR 45,000 supplier timing difference disclosed as unresolved rather than recognized as a closing asset.",
       "evidence": [
         "03 CASE FILES - Open and Investigate/06 Purchases Invoices and Goods Received.pdf, pp. 1-2",
         "03 CASE FILES - Open and Investigate/02 Bank Export August.csv"
@@ -1972,12 +1972,12 @@
       "area": "Supplier payments",
       "amount": 45000,
       "confidence": "medium",
-      "description": "Bank payments exceed the amount implied by supplier confirmed invoices and payables by EUR 45,000. Classified as supplier prepayment/timing difference pending supplier statement detail.",
+      "description": "Bank payments exceed the amount implied by supplier confirmed invoices and payables by EUR 45,000. Disclosed as supplier timing uncertainty pending supplier statement detail; no closing prepayment asset is recognized without clearer evidence.",
       "evidence": [
         "03 CASE FILES - Open and Investigate/02 Bank Export August.csv rows 12-15",
         "03 CASE FILES - Open and Investigate/06 Purchases Invoices and Goods Received.pdf, pp. 1-2 p. 1"
       ],
-      "statementImpact": "Assets include EUR 45,000 supplier prepayment/timing asset; no profit effect until resolved."
+      "statementImpact": "Disclosure only in the corrected statements. If later proved to be a valid supplier prepayment, assets and equity would increase by EUR 45,000."
     },
     {
       "area": "Inventory count variance",

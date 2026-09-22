@@ -133,10 +133,10 @@ equity = {
     "openingPPENet": 135000,
     "openingLoan": 100000,
     "openingPayrollLiability": 15000,
-    "openingEquity": 227000,
+    "openingEquity": 182000,
     "profit": 61000,
     "ownerDistributions": 110000,
-    "closingEquity": 178000,
+    "closingEquity": 133000,
     "evidence": [E["bank"] + " rows 1, 26-27", E["loans"], E["payroll"], E["assets"], E["teacher"]],
 }
 
@@ -145,6 +145,7 @@ supplier = {
     "supplierCashPaidPerBank": 378000,
     "confirmedSupplierPayables": 126000,
     "impliedPaidFromSupplierConfirmations": 333000,
+    "recognizedPrepayment": 0,
     "unexplainedSupplierPrepaymentOrTimingDifference": 45000,
     "evidence": [E["purchases"] + " p. 1", E["bank"] + " rows 12-15"],
 }
@@ -209,7 +210,6 @@ balance_sheet = {
         "tradeReceivablesNet": net_ar,
         "inventory": inventory["closingInventory"],
         "prepaidInsurance": insurance["closingPrepaidInsurance"],
-        "supplierPrepaymentOrTimingDifference": supplier["unexplainedSupplierPrepaymentOrTimingDifference"],
         "ppeNet": ppe["closingNetBookValue"],
     },
     "liabilities": {
@@ -258,7 +258,7 @@ decision_updates = {
     "D010": decision("D010", "BoxWorks cash payment is EUR 105,000; supplier confirmation leaves EUR 25,000 payable.", [E["bank"] + " row 12", E["purchases"] + " p. 1"]),
     "D011": decision("D011", "Glass & Drama cash payment is EUR 92,000; supplier confirmation leaves EUR 28,000 payable.", [E["bank"] + " row 13", E["purchases"] + " p. 1"]),
     "D012": decision("D012", "Print Again cash payment is EUR 81,000; supplier confirmation leaves EUR 14,000 payable.", [E["bank"] + " row 14", E["purchases"] + " p. 1"]),
-    "D013": decision("D013", "Event supplier bank payment is EUR 100,000, but supplier confirmation supports EUR 59,000 still payable; the excess paid creates a EUR 45,000 prepayment/timing uncertainty.", [E["bank"] + " row 15", E["purchases"] + " p. 1"], "medium"),
+    "D013": decision("D013", "Event supplier bank payment is EUR 100,000, but supplier confirmation supports EUR 59,000 still payable; the EUR 45,000 difference is disclosed as an unresolved supplier timing uncertainty, not recognized as an asset.", [E["bank"] + " row 15", E["purchases"] + " p. 1"], "medium"),
     "D014": decision("D014", "January payroll is included in the Jan-Aug combined payroll evidence; no reliable month split is supplied, so use the aggregate payroll schedule.", [E["payroll"], E["bank"] + " row 16"], "medium"),
     "D015": decision("D015", "February payroll is included in the Jan-Aug combined payroll evidence; no reliable month split is supplied, so use the aggregate payroll schedule.", [E["payroll"], E["bank"] + " row 16"], "medium"),
     "D016": decision("D016", "March payroll is included in the Jan-Aug combined payroll evidence; no reliable month split is supplied, so use the aggregate payroll schedule.", [E["payroll"], E["bank"] + " row 16"], "medium"),
@@ -378,12 +378,12 @@ reconciliations = [
     {"name": "PPE and depreciation", "status": "pass", "calculation": "Cost EUR 180,000 + additions EUR 80,000 = EUR 260,000; accumulated depreciation EUR 45,000 + EUR 24,000 = EUR 69,000; NBV EUR 191,000.", "evidence": [E["assets"], E["purchases"]]},
     {"name": "Debt and interest", "status": "pass", "calculation": "Loan EUR 100,000 + advance EUR 50,000 - principal EUR 19,000 = EUR 131,000; interest expense EUR 12,000 less paid EUR 10,000 = payable EUR 2,000.", "evidence": [E["loans"], E["after"], E["bank"]]},
     {"name": "Insurance and prepayment", "status": "pass", "calculation": "Opening prepaid insurance EUR 12,000 - insurance expense EUR 4,000 = closing prepaid insurance EUR 8,000.", "evidence": [E["teacher"]]},
-    {"name": "Equity roll-forward", "status": "pass", "calculation": "Opening equity EUR 227,000 + profit EUR 61,000 - distributions EUR 110,000 = closing equity EUR 178,000.", "evidence": [E["bank"], E["loans"], E["assets"], E["payroll"], E["teacher"]]},
-    {"name": "Supplier roll-forward", "status": "pass_with_uncertainty", "calculation": "Supplier confirmations show EUR 459,000 goods received and EUR 126,000 unpaid; bank shows EUR 378,000 paid, creating EUR 45,000 prepayment/timing difference used to balance the cash-backed statements.", "evidence": [E["purchases"], E["bank"]]},
+    {"name": "Equity roll-forward", "status": "pass", "calculation": "Opening equity EUR 182,000 + profit EUR 61,000 - distributions EUR 110,000 = closing equity EUR 133,000.", "evidence": [E["bank"], E["loans"], E["assets"], E["payroll"], E["teacher"]]},
+    {"name": "Supplier roll-forward", "status": "pass_with_uncertainty", "calculation": "Supplier confirmations show EUR 459,000 goods received and EUR 126,000 unpaid; bank shows EUR 378,000 paid, creating a EUR 45,000 supplier timing difference disclosed as unresolved rather than recognized as a closing asset.", "evidence": [E["purchases"], E["bank"]]},
 ]
 
 uncertainties = [
-    {"area": "Supplier payments", "amount": 45000, "confidence": "medium", "description": "Bank payments exceed the amount implied by supplier confirmed invoices and payables by EUR 45,000. Classified as supplier prepayment/timing difference pending supplier statement detail.", "evidence": [E["bank"] + " rows 12-15", E["purchases"] + " p. 1"], "statementImpact": "Assets include EUR 45,000 supplier prepayment/timing asset; no profit effect until resolved."},
+    {"area": "Supplier payments", "amount": 45000, "confidence": "medium", "description": "Bank payments exceed the amount implied by supplier confirmed invoices and payables by EUR 45,000. Disclosed as supplier timing uncertainty pending supplier statement detail; no closing prepayment asset is recognized without clearer evidence.", "evidence": [E["bank"] + " rows 12-15", E["purchases"] + " p. 1"], "statementImpact": "Disclosure only in the corrected statements. If later proved to be a valid supplier prepayment, assets and equity would increase by EUR 45,000."},
     {"area": "Inventory count variance", "amount": 9000, "confidence": "medium", "description": "Warehouse physical count less damaged stock implies EUR 121,000 saleable inventory, while the purchase/COGS/write-off roll-forward gives EUR 112,000.", "evidence": [E["warehouse"]], "statementImpact": "A different resolution could increase assets/equity and profit by up to EUR 9,000."},
     {"area": "Damaged stock disposal quote", "amount": 2000, "confidence": "medium", "description": "Independent quote indicates a possible future EUR 2,000 cost to remove damaged stock, but evidence does not clearly prove a present obligation at 31 August.", "evidence": [E["warehouse"], E["after"]], "statementImpact": "Disclosure only. If later recognized as a present obligation, profit and equity would decrease by EUR 2,000 and liabilities would increase by EUR 2,000."},
     {"area": "Legal claim estimate", "amount": 5000, "confidence": "medium", "description": "Counsel gives a EUR 20,000-EUR 30,000 range with EUR 25,000 best estimate.", "evidence": [E["loans"] + " p. 2", E["after"]], "statementImpact": "Profit, liabilities and equity could move by EUR 5,000 from the recorded best estimate."},
