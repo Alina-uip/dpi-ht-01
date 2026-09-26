@@ -84,8 +84,8 @@ function materialPlainExplanation(d) {
     D072: "Only the damaged stock carrying value is recognized now. The EUR 2,000 disposal quote is uncertainty only.",
     D073: "Use the lawyer's best estimate of EUR 25,000 because the claim was probable.",
     D074: "Use the independent depreciation estimate because management booked none.",
-    D075: "Closing inventory follows the roll-forward, but the physical count variance is disclosed.",
-    D091: "Use corrected accounts for valuation, but keep the uncertainty warnings visible.",
+    D075: "Closing inventory is a balance estimate; COGS and damaged-stock write-off effects are recorded in separate decisions.",
+    D091: "Approval is a governance decision, not a journal entry. It does not create the statement totals.",
     D100: "Do not use management's profit claim because it includes unsupported and wrongly classified items."
   };
   return explanations[d.id] || d.studentReasoning || d.answer;
@@ -142,6 +142,7 @@ function schedules(data) {
       <div><h3>PPE and Depreciation</h3>${table([{ label: "Line" }, { label: "EUR", num: true }], kvRows(s.ppeAndDepreciation))}</div>
       <div><h3>Debt and Interest</h3>${table([{ label: "Line" }, { label: "EUR", num: true }], kvRows(s.debtAndInterest))}</div>
       <div><h3>Insurance and Prepayments</h3>${table([{ label: "Line" }, { label: "EUR", num: true }], kvRows(s.insuranceAndPrepayments))}</div>
+      <div><h3>Supplier Payables</h3>${table([{ label: "Line" }, { label: "EUR", num: true }], kvRows(s.supplierPayablesAndPrepayment))}</div>
       <div><h3>Equity and Distributions</h3>${table([{ label: "Line" }, { label: "EUR", num: true }], kvRows(s.equityAndDistributions))}</div>
     </div>
   </section>`;

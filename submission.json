@@ -227,7 +227,7 @@
       "category": "evidence_matching",
       "reviewTier": "operational",
       "question": "Resolve the source and treatment of Event supplier payment.",
-      "answer": "Event supplier bank payment is EUR 100,000, but supplier confirmation supports EUR 59,000 still payable; the EUR 45,000 difference is disclosed as an unresolved supplier timing uncertainty, not recognized as an asset.",
+      "answer": "Event supplier cash payments form part of the supplier payable roll-forward; supplier debt is EUR 126,000 from EUR 45,000 opening AP + EUR 459,000 purchases - EUR 378,000 payments.",
       "evidence": [
         "03 CASE FILES - Open and Investigate/02 Bank Export August.csv row 15",
         "03 CASE FILES - Open and Investigate/06 Purchases Invoices and Goods Received.pdf, pp. 1-2 p. 1"
@@ -761,11 +761,11 @@
       "confidence": "high",
       "aiProposal": "Agent 1: Put event delivery staff in COGS because they work directly on paid events.",
       "independentChallenge": "Agent 2: Payroll was paid through payroll, but its function is direct delivery rather than administration.",
-      "studentReasoning": "The department note says these employees work directly on paid events, so matching requires direct cost classification.",
+      "studentReasoning": "The department note says these employees work directly on paid events, so matching requires direct cost classification. Cash is part of total assets, so the cash-paid portion reduces assets.",
       "statementEffect": {
         "profit": -80000.0,
         "cash": -75000.0,
-        "assets": 0.0,
+        "assets": -75000.0,
         "liabilities": 5000.0,
         "equity": -80000.0
       },
@@ -991,11 +991,11 @@
       "confidence": "high",
       "aiProposal": "Agent 1: Recognize NorthStar revenue on acceptance date.",
       "independentChallenge": "Agent 2: Customer name variations create matching risk, but amount/date/bank description corroborate the same transaction.",
-      "studentReasoning": "Signed acceptance and full collection support revenue recognition for the delivered boxes.",
+      "studentReasoning": "Signed acceptance and full collection support revenue recognition for the delivered boxes. Because all cash was collected, total assets increase through cash.",
       "statementEffect": {
         "profit": 180000.0,
         "cash": 180000.0,
-        "assets": 0.0,
+        "assets": 180000.0,
         "liabilities": 0.0,
         "equity": 180000.0
       },
@@ -1015,11 +1015,11 @@
       "confidence": "high",
       "aiProposal": "Agent 1: Recognize full invoice revenue because delivery was accepted.",
       "independentChallenge": "Agent 2: Only EUR 142,000 was collected, but collection affects receivables, not whether delivery occurred.",
-      "studentReasoning": "Accepted delivery on 18 March satisfies revenue recognition despite partial cash collection.",
+      "studentReasoning": "Accepted delivery on 18 March satisfies revenue recognition despite partial cash collection. Total assets include both EUR 142,000 cash and EUR 58,000 receivable.",
       "statementEffect": {
         "profit": 200000.0,
         "cash": 142000.0,
-        "assets": 58000.0,
+        "assets": 200000.0,
         "liabilities": 0.0,
         "equity": 200000.0
       },
@@ -1039,11 +1039,11 @@
       "confidence": "medium",
       "aiProposal": "Agent 1: Recognize revenue when the event was completed.",
       "independentChallenge": "Agent 2: Acceptance is by email rather than signed page, so confidence is slightly lower but still sufficient.",
-      "studentReasoning": "Customer completion evidence and bank receipt support recognition of the completed event.",
+      "studentReasoning": "Customer completion evidence and bank receipt support recognition of the completed event. Total assets include both EUR 70,000 cash and EUR 30,000 receivable.",
       "statementEffect": {
         "profit": 100000.0,
         "cash": 70000.0,
-        "assets": 30000.0,
+        "assets": 100000.0,
         "liabilities": 0.0,
         "equity": 100000.0
       },
@@ -1063,11 +1063,11 @@
       "confidence": "high",
       "aiProposal": "Agent 1: Recognize Liberty revenue on delivery acceptance.",
       "independentChallenge": "Agent 2: The customer message supports acceptance; unpaid EUR 25,000 remains receivable.",
-      "studentReasoning": "The order was delivered and accepted in full by 20 June.",
+      "studentReasoning": "The order was delivered and accepted in full by 20 June. Total assets include both EUR 95,000 cash and EUR 25,000 receivable.",
       "statementEffect": {
         "profit": 120000.0,
         "cash": 95000.0,
-        "assets": 25000.0,
+        "assets": 120000.0,
         "liabilities": 0.0,
         "equity": 120000.0
       },
@@ -1217,7 +1217,7 @@
       "category": "estimation",
       "reviewTier": "material_judgment",
       "question": "Estimate Closing inventory and document the basis.",
-      "answer": "Estimate closing inventory at EUR 112,000 after COGS and damaged-stock write-off.",
+      "answer": "Estimate closing inventory balance at EUR 112,000 after separately recording COGS and damaged-stock write-off.",
       "evidence": [
         "03 CASE FILES - Open and Investigate/05 Warehouse Count Marta Notes.pdf, pp. 1-2",
         "03 CASE FILES - Open and Investigate/06 Purchases Invoices and Goods Received.pdf, pp. 1-2"
@@ -1225,13 +1225,13 @@
       "confidence": "medium",
       "aiProposal": "Agent 1: Roll forward inventory as opening EUR 80,000 + purchases EUR 459,000 - consumed EUR 405,000 - write-off EUR 22,000 = EUR 112,000.",
       "independentChallenge": "Agent 2: The physical saleable count implies EUR 121,000, so the EUR 9,000 difference must be disclosed.",
-      "studentReasoning": "I use the direct COGS and purchase roll-forward for the reconciled statements and disclose the EUR 9,000 count variance.",
+      "studentReasoning": "I use the direct COGS and purchase roll-forward for the closing balance. The P&L entry effects are recorded separately in D048 for EUR 405,000 materials COGS and D058/D072 for the EUR 22,000 damaged-stock write-off, so D075 itself is a closing-balance estimate rather than an additional expense entry.",
       "statementEffect": {
-        "profit": -427000.0,
+        "profit": 0.0,
         "cash": 0.0,
-        "assets": 112000.0,
+        "assets": 0.0,
         "liabilities": 0.0,
-        "equity": -427000.0
+        "equity": 0.0
       },
       "changedFromAI": false
     },
@@ -1336,9 +1336,10 @@
       "category": "estimation",
       "reviewTier": "operational",
       "question": "Estimate Supplier payable and document the basis.",
-      "answer": "Supplier payable is EUR 126,000 from independently confirmed supplier balances.",
+      "answer": "Supplier payable is EUR 126,000: EUR 45,000 opening supplier debt plus EUR 459,000 purchases less EUR 378,000 supplier payments.",
       "evidence": [
-        "03 CASE FILES - Open and Investigate/06 Purchases Invoices and Goods Received.pdf, pp. 1-2 p. 1"
+        "03 CASE FILES - Open and Investigate/06 Purchases Invoices and Goods Received.pdf, pp. 1-2 p. 1",
+        "03 CASE FILES - Open and Investigate/02 Bank Export August.csv rows 12-15"
       ],
       "confidence": "medium"
     },
@@ -1423,7 +1424,7 @@
       "category": "board_decision",
       "reviewTier": "material_judgment",
       "question": "Approve corrected accounts before valuation",
-      "answer": "Approve the corrected accounts for valuation only after recording the adjustments and disclosed uncertainties.",
+      "answer": "Approve the corrected accounts for valuation after recording the adjustments and disclosed uncertainties.",
       "evidence": [
         "01 START HERE - Student Assignment.pdf, pp. 1-3 required checks",
         "03 CASE FILES - Open and Investigate/01 USE THIS NUMBERS FINAL v9.xlsx, Management P&L rows 4-11",
@@ -1432,14 +1433,14 @@
       ],
       "confidence": "medium",
       "aiProposal": "Agent 1: Approve corrected accounts because they reconcile.",
-      "independentChallenge": "Agent 2: Approve only with caveats because inventory and supplier timing differences remain unresolved.",
-      "studentReasoning": "The corrected statements reconcile to bank cash and the balance sheet after adding the insurance/prepayment chain, but valuation should consider disclosed control weaknesses and uncertainty.",
+      "independentChallenge": "Agent 2: Approve only with caveats because inventory count variance and control weaknesses remain unresolved.",
+      "studentReasoning": "Approval is a governance and valuation decision, not a journal entry. The corrected statements already reconcile to profit EUR 61,000, cash EUR 60,000, assets EUR 539,000, liabilities EUR 406,000 and equity EUR 133,000, but approving them does not itself create those totals.",
       "statementEffect": {
-        "profit": 61000.0,
-        "cash": 60000.0,
-        "assets": 539000.0,
-        "liabilities": 406000.0,
-        "equity": 133000.0
+        "profit": 0.0,
+        "cash": 0.0,
+        "assets": 0.0,
+        "liabilities": 0.0,
+        "equity": 0.0
       },
       "changedFromAI": false
     },
@@ -1805,12 +1806,11 @@
       ]
     },
     "supplierPayablesAndPrepayment": {
+      "openingSupplierPayable": 45000,
       "goodsReceived": 459000,
       "supplierCashPaidPerBank": 378000,
       "confirmedSupplierPayables": 126000,
-      "impliedPaidFromSupplierConfirmations": 333000,
-      "recognizedPrepayment": 0,
-      "unexplainedSupplierPrepaymentOrTimingDifference": 45000,
+      "calculation": "Opening supplier payable EUR 45,000 + purchases/goods received EUR 459,000 - supplier cash payments EUR 378,000 = closing supplier payable EUR 126,000.",
       "evidence": [
         "03 CASE FILES - Open and Investigate/06 Purchases Invoices and Goods Received.pdf, pp. 1-2 p. 1",
         "03 CASE FILES - Open and Investigate/02 Bank Export August.csv rows 12-15"
@@ -1959,8 +1959,8 @@
     },
     {
       "name": "Supplier roll-forward",
-      "status": "pass_with_uncertainty",
-      "calculation": "Supplier confirmations show EUR 459,000 goods received and EUR 126,000 unpaid; bank shows EUR 378,000 paid, creating a EUR 45,000 supplier timing difference disclosed as unresolved rather than recognized as a closing asset.",
+      "status": "pass",
+      "calculation": "Opening supplier debt EUR 45,000 + purchases/goods received EUR 459,000 - supplier cash payments EUR 378,000 = closing supplier payable EUR 126,000.",
       "evidence": [
         "03 CASE FILES - Open and Investigate/06 Purchases Invoices and Goods Received.pdf, pp. 1-2",
         "03 CASE FILES - Open and Investigate/02 Bank Export August.csv"
@@ -1968,17 +1968,6 @@
     }
   ],
   "uncertainties": [
-    {
-      "area": "Supplier payments",
-      "amount": 45000,
-      "confidence": "medium",
-      "description": "Bank payments exceed the amount implied by supplier confirmed invoices and payables by EUR 45,000. Disclosed as supplier timing uncertainty pending supplier statement detail; no closing prepayment asset is recognized without clearer evidence.",
-      "evidence": [
-        "03 CASE FILES - Open and Investigate/02 Bank Export August.csv rows 12-15",
-        "03 CASE FILES - Open and Investigate/06 Purchases Invoices and Goods Received.pdf, pp. 1-2 p. 1"
-      ],
-      "statementImpact": "Disclosure only in the corrected statements. If later proved to be a valid supplier prepayment, assets and equity would increase by EUR 45,000."
-    },
     {
       "area": "Inventory count variance",
       "amount": 9000,
@@ -2014,7 +2003,7 @@
   ],
   "boardRecommendation": {
     "summary": "Do not rely on management's EUR 312,000 profit claim. Use corrected accounts showing EUR 61,000 profit, EUR 60,000 cash and material control weaknesses.",
-    "decision": "Approve corrected accounts for valuation with disclosed supplier and inventory uncertainties; reject management profit for earn-out purposes.",
+    "decision": "Approve corrected accounts for valuation with disclosed inventory, disposal and legal uncertainties; reject management profit for earn-out purposes.",
     "correctedProfit": 61000,
     "closingCash": 60000,
     "continueCoreBusiness": true,
@@ -2024,7 +2013,7 @@
       "Move September customer deposits to contract liabilities and stop cash-equals-revenue reporting.",
       "Start a weekly 13-week cash forecast.",
       "Dispose of damaged basement stock and keep the EUR 2,000 disposal quote as a disclosed uncertainty until obligation evidence is clearer.",
-      "Investigate supplier payment mismatch, management override and embedded manipulation attempts."
+      "Investigate management override and embedded manipulation attempts."
     ]
   },
   "aiReviewTrail": {
